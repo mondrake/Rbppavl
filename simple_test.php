@@ -1,12 +1,23 @@
-<head>     
-    <link rel="stylesheet" href="style.css" type="text/css">
-</head>
+<link rel="stylesheet" href="style.css" type="text/css">
 <?php
+/**
+ * PHP AVL binary tree
+ *
+ * A simple test script for Rbppavl package.
+ *
+ * PHP version 5
+ *
+ * @category Structures
+ * @package  Rbppavl
+ * @author   mondrake <mondrake@mondrake.org>
+ * @license  http://www.gnu.org/licenses/gpl.html GNU GPLv3
+ * @link     http://github.com/mondrake/Rbppavl
+ */
+
 require_once "Rbppavl/Rbppavl.php";
 
 // change value below to increase/decrease the number of nodes to be generated
 $howManyNodes = 10;
-
 
 // ------------------------------------------------------------------
 // Test classes
@@ -26,17 +37,12 @@ class TestCallback implements RbppavlCbInterface    {
         return $a->q;
     }
 
-    public function diagnosticMessage($severity, $id, $text, $params, $className = null) {
-        if ($params) {
-            foreach ($params as $a => $b) {
-                $text = str_replace($a, $b, $text);
-            }
-        }
-        print ($text . '<br/>');
+    public function diagnosticMessage($severity, $id, $text, $params, $qText, $className = null) {
+        print($qText . '<br/>');
     }
 
-    public function errorHandler($id, $text, $params, $className = null) {
-        return null;
+    public function errorHandler($id, $text, $params, $qText, $className = null) {
+        throw new exception($qText, $id);
     }
 }
 
@@ -44,7 +50,7 @@ class TestCallback implements RbppavlCbInterface    {
 // Main routine
 // ------------------------------------------------------------------
 
-print ('<h2>Simple Rbppavl tree test - a standard AVL tree</h2>');
+print ('<h2>Simple Rbppavl tree test: a standard AVL tree</h2>');
 print ("This test generates $howManyNodes random integers, inserts them in a standard AVL tree, validates the tree,<br/>");
 print ('performs an inorder traversal, then deletes the tree and its content.<br/>');
 print ('For more complex scenarios, see full test <a href="full_test.php">here</a>.<br/>');
