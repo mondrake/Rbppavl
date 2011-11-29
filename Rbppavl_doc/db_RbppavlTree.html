@@ -1,0 +1,1775 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Rbppavl</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/jquery-ui.css" type="text/css"></link><link rel="stylesheet" href="css/docblox/jquery-ui-1.8.16.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.tools.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
+            $(document).ready(function() {
+                $(".filetree").treeview({
+                    collapsed: true,
+                    persist: "cookie"
+                });
+
+                $("#accordion").accordion({
+                    collapsible: true,
+                    autoHeight:  false,
+                    fillSpace:   true
+                });
+
+                $(".tabs").tabs();
+            });
+        </script></head><body><div xmlns="" id="content">
+<script xmlns:dbx="http://docblox-project.org/xsl/functions">
+
+      function filterElements()
+      {
+        inherited = !$('#show-inherited').hasClass('deselected');
+        public    = !$('#show-public').hasClass('deselected');
+        protected = !$('#show-protected').hasClass('deselected');
+        private   = !$('#show-private').hasClass('deselected');
+
+        $('div.public').each(function(index, val) {
+            $(val).toggle(public && !($(val).hasClass('inherited_from') && !inherited));
+        });
+        $('div.protected').each(function(index, val) {
+            $(val).toggle(protected && !($(val).hasClass('inherited_from') && !inherited));
+        });
+        $('div.private').each(function(index, val) {
+            $(val).toggle(private && !($(val).hasClass('inherited_from') && !inherited));
+        });
+      }
+
+      $(document).ready(function() {
+        $('a.gripper').click(function() {
+            $(this).nextAll('div.code-tabs').slideToggle();
+            $(this).children('img').toggle();
+            return false;
+        });
+
+        $('div.method code span.highlight,div.function code span.highlight,div.constant code span.highlight,div.property code span.highlight').css('cursor', 'pointer');
+
+        $('div.method code span.highlight,div.function code span.highlight,div.constant code span.highlight,div.property code span.highlight').click(function() {
+            $(this).parent().nextAll('div.code-tabs').slideToggle();
+            $(this).parent().prevAll('a.gripper').children('img').toggle();
+            return false;
+        });
+
+        $('div.code-tabs').hide();
+        $('a.gripper').show();
+        $('div.code-tabs:empty').prevAll('a.gripper').html('');
+
+        $('#show-public, #show-protected, #show-private, #show-inherited')
+            .css('cursor', 'pointer')
+            .click(function(){
+                $(this).toggleClass('deselected');
+                if ($(this).hasClass('deselected')) {
+                  $(this).fadeTo('fast', '0.4');
+                } else {
+                  $(this).fadeTo('fast', '1.0');
+                }
+                filterElements();
+                return false;
+            });
+        $('#show-protected, #show-private').click();
+
+        // add the sliding behaviour to the file navigation and show it
+        // it is initially hidden for non-JS users.
+        $("#file-nav-box").show().hover(function() {
+            $("#file-nav-container").slideDown(400);
+        }, function() {
+            $("#file-nav-container").slideUp(400);
+        });
+      });
+
+      
+    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">\RbppavlTree.php</h1>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" id="file-nav-box">
+<div id="file-nav-options">
+              Show:
+              <img src="images/icons/visibility_public.png" id="show-public"><img src="images/icons/visibility_protected.png" id="show-protected"><img src="images/icons/visibility_private.png" id="show-private"><span class="attribute" id="show-inherited">inherited</span>
+</div>
+<div id="file-nav-container">
+<ul id="file-nav"><li>
+<a href="#classes"><img src="images/icons/class.png" height="14">
+                          Classes
+                      </a><ul><li><a href="#%5CRbppavlTree">\RbppavlTree</a></li></ul>
+</li></ul>
+<div style="clear: left;"></div>
+</div>
+<div id="file-nav-tab">
+              Table of Contents
+          </div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" name="top" class="anchor"></a><div id="file-description">
+<p xmlns:dbx="http://docblox-project.org/xsl/functions" class="short-description">PHP AVL binary tree</p>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="long-description"><p>A set of PHP classes implementing management of binary trees according to
+AVL rules.
+The API exposes tree management operations (insert, replace, delete, find),
+traversal (find, first, last, prev, next, curr). Nodes within the trees are
+not exposed publicly.
+Tree and traversal operations implement relaxed balance factors, and
+parent-pointer node structures.
+Hooks for node comparison, error handling and logging capabilities are provided
+via a callback interface.</p>
+
+<p>PHP version 5</p>
+</div>
+</div>
+<dl class="file-info">
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Author</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">
+<a href="mailto:mondrake@mondrake.org">mondrake</a>
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Category</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">Structures
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">License</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">
+<a href="http://www.gnu.org/licenses/gpl.html">GNU GPLv3</a>
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Link</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">
+<a href="http://github.com/mondrake/Rbppavl">http://github.com/mondrake/Rbppavl</a>
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Package</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">Rbppavl
+         
+    </dd>
+</dl>
+<a name="classes" class="anchor"></a><a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\RbppavlTree" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\RbppavlTree<div class="to-top"><a href="#top">jump to top</a></div>
+</h2>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
+<small class="package"><b>Package: </b>Rbppavl</small><p class="short-description">AVL tree.</p>
+<div class="long-description"><p>Implements relaxed balance factors, and parent-pointer node structures.
+When instantiating a new tree, a callback interface must have been defined
+in compliance to RbppavlCbInterface, and its class name passed as an argument.
+Rbppavl will create an instance of the specified class.</p>
+</div>
+<dl class="class-info">
+<dt>Parent(s)</dt>
+<dd>\RbppavlCommon</dd>
+<dt>Author</dt>
+<dd>
+<a href="mailto:mondrake@mondrake.org">mondrake</a>
+         
+    </dd>
+<dt>Category</dt>
+<dd>Structures
+         
+    </dd>
+<dt>License</dt>
+<dd>
+<a href="http://www.gnu.org/licenses/gpl.html">GNU GPLv3</a>
+         
+    </dd>
+<dt>Link</dt>
+<dd>
+<a href="http://github.com/mondrake/Rbppavl">http://github.com/mondrake/Rbppavl</a>
+         
+    </dd>
+</dl>
+<h3>Properties</h3>
+<div>
+<a id="\RbppavlTree::$_count" class="anchor"></a><div class="property private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private">
+                 <span class="highlight">$_count</span>= ''
+                </code><div class="description"><p class="short-description">Number of nodes in tree</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Type</dt>
+<dd>integer
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::$_statistics" class="anchor"></a><div class="property private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private">
+                 <span class="highlight">$_statistics</span>= 'array( 'att_ins'  =&gt; 0'
+                </code><div class="description"><p class="short-description">Internal tree statistics</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Default value</strong><code>array( 'att_ins'  =&gt; 0</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Type</dt>
+<dd>array
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::$balanceFactor" class="anchor"></a><div class="property public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public">
+                 <span class="highlight">$balanceFactor</span>= ''
+                </code><div class="description"><p class="short-description">Maximum imbalance allowed for a node</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Type</dt>
+<dd>integer
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::$cbc" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$cbc</span>= 'null'
+                </code><div class="description">
+<span class="attribute">inherited</span><p class="short-description">Callback interface instance</p>
+<small>Inherited from:
+                        </small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Default value</strong><code>null</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Inherited_from</dt>
+<dd>\RbppavlCommon::$cbc
+         
+    </dd>
+<dt>Type</dt>
+<dd>RbppavlCbInterface
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::$debugMode" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$debugMode</span>= 'false'
+                </code><div class="description">
+<span class="attribute">inherited</span><p class="short-description">Debug mode - if true, tree management operation are verbosely diagnosed</p>
+<small>Inherited from:
+                        </small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Default value</strong><code>false</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Inherited_from</dt>
+<dd>\RbppavlCommon::$debugMode
+         
+    </dd>
+<dt>Type</dt>
+<dd>boolean
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::$memoryLimit" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$memoryLimit</span>= '0'
+                </code><div class="description">
+<span class="attribute">inherited</span><p class="short-description">If different from 0, insertions of new nodes are preliminary checked
+vs remaining memory available</p>
+<small>Inherited from:
+                        </small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Default value</strong><code>0</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Inherited_from</dt>
+<dd>\RbppavlCommon::$memoryLimit
+         
+    </dd>
+<dt>Type</dt>
+<dd>integer
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::$memoryThreshold" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$memoryThreshold</span>= '0'
+                </code><div class="description">
+<span class="attribute">inherited</span><p class="short-description">In combination with $memoryLimit, defines the minimum memory to be kept
+free during tree insertion operations</p>
+<small>Inherited from:
+                        </small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Default value</strong><code>0</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Inherited_from</dt>
+<dd>\RbppavlCommon::$memoryThreshold
+         
+    </dd>
+<dt>Type</dt>
+<dd>integer
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::$root" class="anchor"></a><div class="property public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public">
+                 <span class="highlight">$root</span>= ''
+                </code><div class="description"><p class="short-description">Pointer to the root node of the tree</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Type</dt>
+<dd>RbppavlNode
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::$status" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$status</span>= 'array('level'         =&gt; RBPPAVL_NOTICE'
+                </code><div class="description">
+<span class="attribute">inherited</span><p class="short-description">Internal status of tree management classes (RbppavlTree, RbppavlTraverser)</p>
+<small>Inherited from:
+                        </small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>Array keys:
+- 'level'         status level complying to RFC 3164
+- 'code'          status code as per _message()
+- 'messageParams' array of parameters to qualify the message text</p>
+</div>
+<strong>Default value</strong><code>array('level'         =&gt; RBPPAVL_NOTICE</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Inherited_from</dt>
+<dd>\RbppavlCommon::$status
+         
+    </dd>
+<dt>Type</dt>
+<dd>array
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<h3>Methods</h3>
+<div>
+<a id="\RbppavlTree::__call()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__call</span><span class="nb-faded-text">(
+          \string $name, \array $args
+          )
+        </span>
+        :
+          \null</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Handles calls to inaccessible methods</p>
+<small>Inherited from:
+                    \RbppavlCommon::__call()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$name</th>
+<td>\string</td>
+<td><em><p>the method invoked</p></em></td>
+</tr>
+<tr>
+<th>$args</th>
+<td>\array</td>
+<td><em><p>the array representing the arguments passed to the method</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\null</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Internal</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::__construct()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__construct</span><span class="nb-faded-text">(
+          \string $callbackClass, \int $balanceFactor
+              =
+              1, \boolean $debugMode
+              =
+              false, \mixed $memThreshold
+              =
+              null
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">Creates a new tree.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$callbackClass</th>
+<td>\string</td>
+<td><em><p>callback interface class to be instantiated</p></em></td>
+</tr>
+<tr>
+<th>$balanceFactor</th>
+<td>\int</td>
+<td><em><p>AVL balancing factor of the tree</p></em></td>
+</tr>
+<tr>
+<th>$debugMode</th>
+<td>\boolean</td>
+<td><em><p>if true produces verbose debugging on tree operations</p></em></td>
+</tr>
+<tr>
+<th>$memThreshold</th>
+<td>\mixed</td>
+<td><em><p>if not null enables available memory checking, with min available memory as per value specified</p></em></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::__destruct()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__destruct</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">Destroys a tree.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>private
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::__get()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__get</span><span class="nb-faded-text">(
+          \string $name
+          )
+        </span>
+        :
+          \null</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Handles reads to inaccessible properties</p>
+<small>Inherited from:
+                    \RbppavlCommon::__get()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$name</th>
+<td>\string</td>
+<td><em><p>the property invoked</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\null</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Internal</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::__set()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__set</span><span class="nb-faded-text">(
+          \string $name, \array $value
+          )
+        </span>
+        :
+          \null</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Handles writes to inaccessible properties</p>
+<small>Inherited from:
+                    \RbppavlCommon::__set()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$name</th>
+<td>\string</td>
+<td><em><p>the property invoked</p></em></td>
+</tr>
+<tr>
+<th>$value</th>
+<td>\array</td>
+<td><em><p>the value attempted to be written</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\null</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Internal</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::_debugNodeToArray()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">_debugNodeToArray</span><span class="nb-faded-text">(
+          \object $node, \int $level, \string $pos, \int $maxLevel, \array $arr
+          )
+        </span>
+        :
+          \null</code><div class="description"><p class="short_description">Inserts a node in a level-order array.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>This method should be used only for debugging purposes.</p>
+
+<p>This method is called by debugLevelOrderToArray(). It works recursively.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$node</th>
+<td>\object</td>
+<td><em><p>the node to be inserted in the array</p></em></td>
+</tr>
+<tr>
+<th>$level</th>
+<td>\int</td>
+<td><em><p>the level at which the node is positioned</p></em></td>
+</tr>
+<tr>
+<th>$pos</th>
+<td>\string</td>
+<td><em><p>the node position in the level in binary notation</p></em></td>
+</tr>
+<tr>
+<th>$maxLevel</th>
+<td>\int</td>
+<td><em><p>maximum level to recurse down to</p></em></td>
+</tr>
+<tr>
+<th>$arr</th>
+<td>\array</td>
+<td><em><p>&$arr the array to be filled</p>
+</em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\null</td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::_nodeProbe()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">_nodeProbe</span><span class="nb-faded-text">(
+          \object $data
+          )
+        </span>
+        :
+          \object</code><div class="description"><p class="short_description">Inserts a node in the tree and returns a pointer to the node inserted.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>If a duplicate data object is found in the tree, returns a pointer to the duplicate node
+without inserting the new data object.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$data</th>
+<td>\object</td>
+<td><em><p>the data object to be inserted</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>pointer to the node inserted</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::_rotationRebalance()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">_rotationRebalance</span><span class="nb-faded-text">(
+          \object $y
+          )
+        </span>
+        :
+          \null</code><div class="description"><p class="short_description">Performs rotation on the node to restore AVL compliance.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$y</th>
+<td>\object</td>
+<td><em><p>node to be rotated</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\null</td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::checkData()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">checkData</span><span class="nb-faded-text">(
+          \object $data, \string $method
+          )
+        </span>
+        :
+          \boolean</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Checks if the data object passed to a method is valid.</p>
+<small>Inherited from:
+                    \RbppavlCommon::checkData()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$data</th>
+<td>\object</td>
+<td><em><p>the data object</p></em></td>
+</tr>
+<tr>
+<th>$method</th>
+<td>\string</td>
+<td><em><p>the class method calling the function</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\boolean</td>
+<td>true if $data is a valid object, false elsewhere</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::debugLevelOrderToArray()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">debugLevelOrderToArray</span><span class="nb-faded-text">(
+          \int $maxLevel
+              =
+              5
+          )
+        </span>
+        :
+          \array</code><div class="description"><p class="short_description">Returns an array of nodes by level and left-to-right order.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>This method should be used only for debugging purposes.</p>
+
+<p>Basically, performs a level-order traversal of the tree, associating each node
+to its level and position within the level, and build an array with associated
+keys.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$maxLevel</th>
+<td>\int</td>
+<td><em><p>maximum number of levels to be returned</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\array</td>
+<td>an array in the format $arr[$lev][$pos] where $lev is the level of the node in the tree, and $pos the position of the node in the level</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::debugValidate()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">debugValidate</span><span class="nb-faded-text">(
+          \boolean $setStatusOnSuccess
+              =
+              false
+          )
+        </span>
+        :
+          \object</code><div class="description"><p class="short_description">Validates tree's AVL compliance.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>This method should be used only for debugging purposes.</p>
+
+<p>Recursively checks all nodes in tree to see if nodes' height property and
+balance factor are computed correctly.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$setStatusOnSuccess</th>
+<td>\boolean</td>
+<td><em><p>if true and validation is successful, internal status is updated and a diagnostic message broadcast</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>the data object of the first failing node or null if successful</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::delete()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">delete</span><span class="nb-faded-text">(
+          \object $data
+          )
+        </span>
+        :
+          \object</code><div class="description"><p class="short_description">Deletes a data object from the tree structure.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>Normally returns a pointer to the data object deleted from the structure,
+or null if the data object was not found.
+Use getStatusLevel() and getStatusCode() to check internal error status.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$data</th>
+<td>\object</td>
+<td><em><p>data object to be deleted</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>null if node was not found or internal error occurred; pointer to existing data object if node deleted</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::find()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">find</span><span class="nb-faded-text">(
+          \object $data, \int $mode
+              =
+              RBPPAVL_FIND_EXACT_MATCH
+          )
+        </span>
+        :
+          \object</code><div class="description"><p class="short_description">Finds a data object in the tree structure.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$data</th>
+<td>\object</td>
+<td><em><p>data object to be searched</p></em></td>
+</tr>
+<tr>
+<th>$mode</th>
+<td>\int</td>
+<td><em><p>match mode - by default exact match {RBPPAVL_FIND_EXACT_MATCH|RBPPAVL_FIND_PREV_MATCH|RBPPAVL_FIND_NEXT_MATCH}</p>
+</em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>null if node was not found or internal error occurred; pointer to data object if node found</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::getCount()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getCount</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \int</code><div class="description"><p class="short_description">Return the number of nodes in the tree.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\int</td>
+<td>number of nodes in the tree</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::getMessages()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getMessages</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \array</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Gets an array with Rbppavl diagnostic messages.</p>
+<small>Inherited from:
+                    \RbppavlCommon::getMessages()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>Each array item is itself an array, with first element being the severity
+{RBPPAVL_DEBUG|RBPPAVL_INFO|RBPPAVL_NOTICE|RBPPAVL_WARNING|RBPPAVL_ERROR},
+and the second the unqualified diagnostic text.
+A % sign precedes in the text a parameter identifier; getStatusMessage()
+will replace at run-time the parameters with actual data to qualify the
+message.</p>
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\array</td>
+<td>current Rbppavl diagnostic messages</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::getStatistics()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getStatistics</span><span class="nb-faded-text">(
+          \string $stat
+              =
+              null, \boolean $setStatus
+              =
+              false
+          )
+        </span>
+        :
+          \int | \array</code><div class="description"><p class="short_description">Gets internal tree statistics.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>Rbppavl maintains an internal set of statistics on tree operation performed in an
+associative array. The keys of the array are the following:
+- 'balance_factor' tree's balance factor
+- 'height'         root height
+- 'count'          nodes in tree
+- 'ins'            successful inserts
+- 'ins'            successful inserts
+- 'att_ins'        attempted inserts
+- 'rep'            successful replaces
+- 'att_rep'        attempted replaces
+- 'del'            successful deletes
+- 'att_del'        attempted deletes
+- 'self'           number of self-balances
+- 'll'             number of LL rotations
+- 'lr'             number of LR rotations
+- 'rr'             number of RR rotations
+- 'rl'             number of RL rotations</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$stat</th>
+<td>\string</td>
+<td><em><p>the statistic key to return, or null to return the whole array of statistics</p></em></td>
+</tr>
+<tr>
+<th>$setStatus</th>
+<td>\boolean</td>
+<td><em><p>if true, internal status is updated and diagnostic message is broadcast</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\int | \array</td>
+<td>value of the statistic key requested, or the whole array of statistics if no statistic key specified</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::getStatusCode()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getStatusCode</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \int</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Gets current status code.</p>
+<small>Inherited from:
+                    \RbppavlCommon::getStatusCode()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\int</td>
+<td>Current status code</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::getStatusLevel()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getStatusLevel</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \int</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Gets current status level.</p>
+<small>Inherited from:
+                    \RbppavlCommon::getStatusLevel()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\int</td>
+<td>Current status level {RBPPAVL_DEBUG|RBPPAVL_INFO|RBPPAVL_NOTICE|RBPPAVL_WARNING|RBPPAVL_ERROR}</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::getStatusMessage()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getStatusMessage</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Gets current status message.</p>
+<small>Inherited from:
+                    \RbppavlCommon::getStatusMessage()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\string</td>
+<td>Current status message</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::getVersion()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getVersion</span><span class="nb-faded-text">(
+          \boolean $setStatus
+              =
+              false
+          )
+        </span>
+        :
+          \array</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Gets Rbppavl version and state.</p>
+<small>Inherited from:
+                    \RbppavlCommon::getVersion()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$setStatus</th>
+<td>\boolean</td>
+<td><em><p>if true, internal status is updated and a diagnostic message broadcast</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\array</td>
+<td>an array with [0] = Rbppavl version number and [1] = Rbppavl version state</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::insert()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">insert</span><span class="nb-faded-text">(
+          \object $data
+          )
+        </span>
+        :
+          \object</code><div class="description"><p class="short_description">Inserts a data object in the tree structure.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>Normally returns null if successful.
+Use getStatusLevel() and getStatusCode() to check internal error status.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$data</th>
+<td>\object</td>
+<td><em><p>data object to be inserted</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>null if node was created or internal error occurred; pointer to existing data object if node exists already</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::nodeFind()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">nodeFind</span><span class="nb-faded-text">(
+          <a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a> $tree, \object $data, \object $y, \object $q, \int $dir, \int $mode
+          )
+        </span>
+        :
+          \object</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Finds a node in the tree.</p>
+<small>Inherited from:
+                    \RbppavlCommon::nodeFind()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tree</th>
+<td><a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a></td>
+<td><em><p>the tree to be searched</p></em></td>
+</tr>
+<tr>
+<th>$data</th>
+<td>\object</td>
+<td><em><p>the data object to be found</p></em></td>
+</tr>
+<tr>
+<th>$y</th>
+<td>\object</td>
+<td><em><p>&$y top node to start searching from</p>
+</em></td>
+</tr>
+<tr>
+<th>$q</th>
+<td>\object</td>
+<td><em><p>&$q parent node of the found node</p>
+</em></td>
+</tr>
+<tr>
+<th>$dir</th>
+<td>\int</td>
+<td><em><p>&$dir last direction descended</p>
+</em></td>
+</tr>
+<tr>
+<th>$mode</th>
+<td>\int</td>
+<td><em><p>match mode {RBPPAVL_FIND_EXACT_MATCH|RBPPAVL_FIND_PREV_MATCH|RBPPAVL_FIND_NEXT_MATCH}</p>
+</em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>pointer to the found node or null if not found</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::nodeFirst()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">nodeFirst</span><span class="nb-faded-text">(
+          <a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a> $tree
+          )
+        </span>
+        :
+          \object</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Returns the node with the least value (leftmost).</p>
+<small>Inherited from:
+                    \RbppavlCommon::nodeFirst()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tree</th>
+<td><a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a></td>
+<td><em><p>the tree to be searched</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>the leftmost node in the tree or null if tree is empty.</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::nodeLast()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">nodeLast</span><span class="nb-faded-text">(
+          <a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a> $tree
+          )
+        </span>
+        :
+          \object</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Returns the node with the greatest value (rightmost).</p>
+<small>Inherited from:
+                    \RbppavlCommon::nodeLast()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tree</th>
+<td><a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a></td>
+<td><em><p>the tree to be searched</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>the rightmost node in the tree or null if tree is empty.</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::nodeNext()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">nodeNext</span><span class="nb-faded-text">(
+          <a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a> $tree, \object $node
+          )
+        </span>
+        :
+          \object</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Returns the next node in in-order sequence.</p>
+<small>Inherited from:
+                    \RbppavlCommon::nodeNext()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>If there are no more nodes returns null.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tree</th>
+<td><a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a></td>
+<td><em><p>the tree to be searched</p></em></td>
+</tr>
+<tr>
+<th>$node</th>
+<td>\object</td>
+<td><em><p>node to start searching from</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>next node in in-order sequence or null if rightmost node input</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::nodePrev()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">nodePrev</span><span class="nb-faded-text">(
+          <a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a> $tree, \object $node
+          )
+        </span>
+        :
+          \object</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Returns the previous node in in-order sequence.</p>
+<small>Inherited from:
+                    \RbppavlCommon::nodePrev()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>If there are no more nodes returns null.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tree</th>
+<td><a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a></td>
+<td><em><p>the tree to be searched</p></em></td>
+</tr>
+<tr>
+<th>$node</th>
+<td>\object</td>
+<td><em><p>node to start searching from</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>previous node in in-order sequence or null if leftmost node input</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::replace()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">replace</span><span class="nb-faded-text">(
+          \object $data
+          )
+        </span>
+        :
+          \object</code><div class="description"><p class="short_description">Replaces a data object in the tree structure.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>Normally returns null if successful, or a pointer to the replaced
+data object. Note: replaced data object is NOT destructed, calling
+code should deal with the duplicated data object.
+Use getStatusLevel() and getStatusCode() to check internal error status.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$data</th>
+<td>\object</td>
+<td><em><p>data object</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>null if node was created or internal error occurred; pointer to replaced data object if node was existing already</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::resetStatus()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">resetStatus</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \null</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Resets internal status.</p>
+<small>Inherited from:
+                    \RbppavlCommon::resetStatus()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\null</td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::returnBytes()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">returnBytes</span><span class="nb-faded-text">(
+          \int | \string $size
+          )
+        </span>
+        :
+          \int</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Converts a short for memory size into number of bytes.</p>
+<small>Inherited from:
+                    \RbppavlCommon::returnBytes()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$size</th>
+<td>\int | \string</td>
+<td><em><p>a size number in bytes, or KBytes (nnnK), or MBytes (nnnM), or GBytes (nnnG)</p>
+</em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\int</td>
+<td>number of bytes</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::setMessages()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">setMessages</span><span class="nb-faded-text">(
+          \array $table
+          )
+        </span>
+        :
+          \the</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Sets Rbppavl diagnostic messages.</p>
+<small>Inherited from:
+                    \RbppavlCommon::setMessages()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>Each array item of the input arrayis itself an array, with first
+element being the severity {RBPPAVL_DEBUG|RBPPAVL_INFO|RBPPAVL_NOTICE|RBPPAVL_WARNING|RBPPAVL_ERROR},
+and the second the unqualified diagnostic text.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$table</th>
+<td>\array</td>
+<td><em><p>Rbppavl diagnostic messages</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\the</td>
+<td>new complete diagnostic messages map</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::setStatus()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">setStatus</span><span class="nb-faded-text">(
+          \int $id, \array $params
+              =
+              null, \boolean $reset
+              =
+              false
+          )
+        </span>
+        :
+          \null</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Sets internal status</p>
+<small>Inherited from:
+                    \RbppavlCommon::setStatus()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>Internal status is updated with the severity level as identified by the message id.
+Diagnostic message is passed over to the callback interface.
+In case of RBPPAVL_ERROR, error handling is passed over to the callback interface;
+if callback interface is not instantiated yet, a standard exception is thrown.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$id</th>
+<td>\int</td>
+<td><em><p>the id of the diagnostic message</p></em></td>
+</tr>
+<tr>
+<th>$params</th>
+<td>\array</td>
+<td><em><p>the parameters to qualify the message</p></em></td>
+</tr>
+<tr>
+<th>$reset</th>
+<td>\boolean</td>
+<td><em><p>if true, it is a reset call</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\null</td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTree::txt()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">txt</span><span class="nb-faded-text">(
+          \int $id, \array $params
+              =
+              null
+          )
+        </span>
+        :
+          \string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Returns a fully qualified diagnostic message.</p>
+<small>Inherited from:
+                    \RbppavlCommon::txt()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$id</th>
+<td>\int</td>
+<td><em><p>id of the diagnostic message</p></em></td>
+</tr>
+<tr>
+<th>$params</th>
+<td>\array</td>
+<td><em><p>parameters to qualify the message</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\string</td>
+<td>fully qualified diagnostic text</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox 0.16.0</a>.
+    </small></body></html>

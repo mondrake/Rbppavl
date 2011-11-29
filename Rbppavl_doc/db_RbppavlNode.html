@@ -1,0 +1,493 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Rbppavl</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/jquery-ui.css" type="text/css"></link><link rel="stylesheet" href="css/docblox/jquery-ui-1.8.16.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.tools.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
+            $(document).ready(function() {
+                $(".filetree").treeview({
+                    collapsed: true,
+                    persist: "cookie"
+                });
+
+                $("#accordion").accordion({
+                    collapsible: true,
+                    autoHeight:  false,
+                    fillSpace:   true
+                });
+
+                $(".tabs").tabs();
+            });
+        </script></head><body><div xmlns="" id="content">
+<script xmlns:dbx="http://docblox-project.org/xsl/functions">
+
+      function filterElements()
+      {
+        inherited = !$('#show-inherited').hasClass('deselected');
+        public    = !$('#show-public').hasClass('deselected');
+        protected = !$('#show-protected').hasClass('deselected');
+        private   = !$('#show-private').hasClass('deselected');
+
+        $('div.public').each(function(index, val) {
+            $(val).toggle(public && !($(val).hasClass('inherited_from') && !inherited));
+        });
+        $('div.protected').each(function(index, val) {
+            $(val).toggle(protected && !($(val).hasClass('inherited_from') && !inherited));
+        });
+        $('div.private').each(function(index, val) {
+            $(val).toggle(private && !($(val).hasClass('inherited_from') && !inherited));
+        });
+      }
+
+      $(document).ready(function() {
+        $('a.gripper').click(function() {
+            $(this).nextAll('div.code-tabs').slideToggle();
+            $(this).children('img').toggle();
+            return false;
+        });
+
+        $('div.method code span.highlight,div.function code span.highlight,div.constant code span.highlight,div.property code span.highlight').css('cursor', 'pointer');
+
+        $('div.method code span.highlight,div.function code span.highlight,div.constant code span.highlight,div.property code span.highlight').click(function() {
+            $(this).parent().nextAll('div.code-tabs').slideToggle();
+            $(this).parent().prevAll('a.gripper').children('img').toggle();
+            return false;
+        });
+
+        $('div.code-tabs').hide();
+        $('a.gripper').show();
+        $('div.code-tabs:empty').prevAll('a.gripper').html('');
+
+        $('#show-public, #show-protected, #show-private, #show-inherited')
+            .css('cursor', 'pointer')
+            .click(function(){
+                $(this).toggleClass('deselected');
+                if ($(this).hasClass('deselected')) {
+                  $(this).fadeTo('fast', '0.4');
+                } else {
+                  $(this).fadeTo('fast', '1.0');
+                }
+                filterElements();
+                return false;
+            });
+        $('#show-protected, #show-private').click();
+
+        // add the sliding behaviour to the file navigation and show it
+        // it is initially hidden for non-JS users.
+        $("#file-nav-box").show().hover(function() {
+            $("#file-nav-container").slideDown(400);
+        }, function() {
+            $("#file-nav-container").slideUp(400);
+        });
+      });
+
+      
+    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">\RbppavlNode.php</h1>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" id="file-nav-box">
+<div id="file-nav-options">
+              Show:
+              <img src="images/icons/visibility_public.png" id="show-public"><img src="images/icons/visibility_protected.png" id="show-protected"><img src="images/icons/visibility_private.png" id="show-private"><span class="attribute" id="show-inherited">inherited</span>
+</div>
+<div id="file-nav-container">
+<ul id="file-nav"><li>
+<a href="#classes"><img src="images/icons/class.png" height="14">
+                          Classes
+                      </a><ul><li><a href="#%5CRbppavlNode">\RbppavlNode</a></li></ul>
+</li></ul>
+<div style="clear: left;"></div>
+</div>
+<div id="file-nav-tab">
+              Table of Contents
+          </div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" name="top" class="anchor"></a><div id="file-description">
+<p xmlns:dbx="http://docblox-project.org/xsl/functions" class="short-description">PHP AVL binary tree</p>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="long-description"><p>A set of PHP classes implementing management of binary trees according to
+AVL rules.
+The API exposes tree management operations (insert, replace, delete, find),
+traversal (find, first, last, prev, next, curr). Nodes within the trees are
+not exposed publicly.
+Tree and traversal operations implement relaxed balance factors, and
+parent-pointer node structures.
+Hooks for node comparison, error handling and logging capabilities are provided
+via a callback interface.</p>
+
+<p>PHP version 5</p>
+</div>
+</div>
+<dl class="file-info">
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Author</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">
+<a href="mailto:mondrake@mondrake.org">mondrake</a>
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Category</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">Structures
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">License</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">
+<a href="http://www.gnu.org/licenses/gpl.html">GNU GPLv3</a>
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Link</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">
+<a href="http://github.com/mondrake/Rbppavl">http://github.com/mondrake/Rbppavl</a>
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Package</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">Rbppavl
+         
+    </dd>
+</dl>
+<a name="classes" class="anchor"></a><a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\RbppavlNode" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\RbppavlNode<div class="to-top"><a href="#top">jump to top</a></div>
+</h2>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
+<small class="package"><b>Package: </b>Rbppavl</small><p class="short-description">Rbppavl tree node.</p>
+<div class="long-description"><p>Class with node methods.</p>
+</div>
+<dl class="class-info">
+<dt>Parent(s)</dt>
+<dd><a href="db_Rbppavl.html#%5CRbppavl">\Rbppavl</a></dd>
+<dt>Access</dt>
+<dd>private
+         
+    </dd>
+<dt>Author</dt>
+<dd>
+<a href="mailto:mondrake@mondrake.org">mondrake</a>
+         
+    </dd>
+<dt>Category</dt>
+<dd>Structures
+         
+    </dd>
+<dt>License</dt>
+<dd>
+<a href="http://www.gnu.org/licenses/gpl.html">GNU GPLv3</a>
+         
+    </dd>
+<dt>Link</dt>
+<dd>
+<a href="http://github.com/mondrake/Rbppavl">http://github.com/mondrake/Rbppavl</a>
+         
+    </dd>
+</dl>
+<h3>Properties</h3>
+<div>
+<a id="\RbppavlNode::$data" class="anchor"></a><div class="property public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public">
+                 <span class="highlight">$data</span>= ''
+                </code><div class="description"><p class="short-description">Pointer to the node's data object (payload)</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Type</dt>
+<dd>object
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlNode::$height" class="anchor"></a><div class="property public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public">
+                 <span class="highlight">$height</span>= ''
+                </code><div class="description"><p class="short-description">Height of the node's tree</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Type</dt>
+<dd>integer
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlNode::$link" class="anchor"></a><div class="property public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public">
+                 <span class="highlight">$link</span>= 'array( null'
+                </code><div class="description"><p class="short-description">Pointers to the node's left and right subtrees</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Default value</strong><code>array( null</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Type</dt>
+<dd>array
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlNode::$parent" class="anchor"></a><div class="property public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public">
+                 <span class="highlight">$parent</span>= 'null'
+                </code><div class="description"><p class="short-description">Pointer to the node's parent node</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Default value</strong><code>null</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Type</dt>
+<dd>RbppavlNode
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<h3>Methods</h3>
+<div>
+<a id="\RbppavlNode::__construct()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__construct</span><span class="nb-faded-text">(
+          \object $tree, \object $data, \object $parent
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">Constructs a RbppavlNode instance.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tree</th>
+<td>\object</td>
+<td><em><p>the caller tree</p></em></td>
+</tr>
+<tr>
+<th>$data</th>
+<td>\object</td>
+<td><em><p>the object of the node</p></em></td>
+</tr>
+<tr>
+<th>$parent</th>
+<td>\object</td>
+<td><em><p>the parent RbppavlNode</p></em></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>private
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlNode::_debugHeightCalculate()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">_debugHeightCalculate</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \int</code><div class="description"><p class="short_description">Calculate the node's height.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>This method should be used only for debugging purposes.</p>
+
+<p>Differently from heightReset(), the height is calculated by recursively
+calculating the height of the node's subtrees from the leaf
+node upwards. This method is used by debugNodeValidate() to ensure
+the height property of a node corresponds to the actual height.
+In normal mode, the 'height' property stores the current node's
+height, and is updated by RbppavlTree methods to keep it consistent
+across tree balancing operations.</p>
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\int</td>
+<td>the node's height</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>private
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlNode::balance()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">balance</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \int</code><div class="description"><p class="short_description">Returns the current value of the node's balancing factor.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>Balance is determined from the difference of the heights of the
+node's subtrees.</p>
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\int</td>
+<td>value of the balancing factor</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>private
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlNode::debugNodeValidate()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">debugNodeValidate</span><span class="nb-faded-text">(
+          \int $balanceFactor, \int $status, \boolean $recurse
+              =
+              true
+          )
+        </span>
+        :
+          \object</code><div class="description"><p class="short_description">Validates the node's compliance to AVL rules.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>This method should be used only for debugging purposes.</p>
+
+<p>Called by RbppavlTree::debugValidate().</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$balanceFactor</th>
+<td>\int</td>
+<td><em><p>balancing factor</p></em></td>
+</tr>
+<tr>
+<th>$status</th>
+<td>\int</td>
+<td><em><p>&$status failure status</p>
+</em></td>
+</tr>
+<tr>
+<th>$recurse</th>
+<td>\boolean</td>
+<td><em><p>if true, recursively validates all the nodes in the node's subtrees</p>
+</em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>pointer to the node failing AVL rules, or null if node is compliant</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>private
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlNode::heightReset()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">heightReset</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \null</code><div class="description"><p class="short_description">Resets the node's height.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>Height is determined from the value of the 'height' property
+of the subtrees.</p>
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\null</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>private
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlNode::wipe()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">wipe</span><span class="nb-faded-text">(
+          \object $ctr
+          )
+        </span>
+        :
+          \int</code><div class="description"><p class="short_description">Forces removal of the node and of the associated data from the tree.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>Recursively remove the node, all the nodes in its subtrees, and all
+associated data objects without recalculating heights and balancing
+factors of the rest of the tree.
+Called by RbppavlTree::_destruct() to orderly free memory when
+destructuring a tree object.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$ctr</th>
+<td>\object</td>
+<td><em><p>&$ctr counter of nodes wiped from the tree</p>
+</em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\int</td>
+<td>number of nodes wiped from the tree</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>private
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox 0.16.0</a>.
+    </small></body></html>

@@ -1,0 +1,1419 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Rbppavl</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/jquery-ui.css" type="text/css"></link><link rel="stylesheet" href="css/docblox/jquery-ui-1.8.16.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.tools.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
+            $(document).ready(function() {
+                $(".filetree").treeview({
+                    collapsed: true,
+                    persist: "cookie"
+                });
+
+                $("#accordion").accordion({
+                    collapsible: true,
+                    autoHeight:  false,
+                    fillSpace:   true
+                });
+
+                $(".tabs").tabs();
+            });
+        </script></head><body><div xmlns="" id="content">
+<script xmlns:dbx="http://docblox-project.org/xsl/functions">
+
+      function filterElements()
+      {
+        inherited = !$('#show-inherited').hasClass('deselected');
+        public    = !$('#show-public').hasClass('deselected');
+        protected = !$('#show-protected').hasClass('deselected');
+        private   = !$('#show-private').hasClass('deselected');
+
+        $('div.public').each(function(index, val) {
+            $(val).toggle(public && !($(val).hasClass('inherited_from') && !inherited));
+        });
+        $('div.protected').each(function(index, val) {
+            $(val).toggle(protected && !($(val).hasClass('inherited_from') && !inherited));
+        });
+        $('div.private').each(function(index, val) {
+            $(val).toggle(private && !($(val).hasClass('inherited_from') && !inherited));
+        });
+      }
+
+      $(document).ready(function() {
+        $('a.gripper').click(function() {
+            $(this).nextAll('div.code-tabs').slideToggle();
+            $(this).children('img').toggle();
+            return false;
+        });
+
+        $('div.method code span.highlight,div.function code span.highlight,div.constant code span.highlight,div.property code span.highlight').css('cursor', 'pointer');
+
+        $('div.method code span.highlight,div.function code span.highlight,div.constant code span.highlight,div.property code span.highlight').click(function() {
+            $(this).parent().nextAll('div.code-tabs').slideToggle();
+            $(this).parent().prevAll('a.gripper').children('img').toggle();
+            return false;
+        });
+
+        $('div.code-tabs').hide();
+        $('a.gripper').show();
+        $('div.code-tabs:empty').prevAll('a.gripper').html('');
+
+        $('#show-public, #show-protected, #show-private, #show-inherited')
+            .css('cursor', 'pointer')
+            .click(function(){
+                $(this).toggleClass('deselected');
+                if ($(this).hasClass('deselected')) {
+                  $(this).fadeTo('fast', '0.4');
+                } else {
+                  $(this).fadeTo('fast', '1.0');
+                }
+                filterElements();
+                return false;
+            });
+        $('#show-protected, #show-private').click();
+
+        // add the sliding behaviour to the file navigation and show it
+        // it is initially hidden for non-JS users.
+        $("#file-nav-box").show().hover(function() {
+            $("#file-nav-container").slideDown(400);
+        }, function() {
+            $("#file-nav-container").slideUp(400);
+        });
+      });
+
+      
+    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">\RbppavlTraverser.php</h1>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" id="file-nav-box">
+<div id="file-nav-options">
+              Show:
+              <img src="images/icons/visibility_public.png" id="show-public"><img src="images/icons/visibility_protected.png" id="show-protected"><img src="images/icons/visibility_private.png" id="show-private"><span class="attribute" id="show-inherited">inherited</span>
+</div>
+<div id="file-nav-container">
+<ul id="file-nav"><li>
+<a href="#classes"><img src="images/icons/class.png" height="14">
+                          Classes
+                      </a><ul><li><a href="#%5CRbppavlTraverser">\RbppavlTraverser</a></li></ul>
+</li></ul>
+<div style="clear: left;"></div>
+</div>
+<div id="file-nav-tab">
+              Table of Contents
+          </div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" name="top" class="anchor"></a><div id="file-description">
+<p xmlns:dbx="http://docblox-project.org/xsl/functions" class="short-description">PHP AVL binary tree</p>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="long-description"><p>A set of PHP classes implementing management of binary trees according to
+AVL rules.
+The API exposes tree management operations (insert, replace, delete, find),
+traversal (find, first, last, prev, next, curr). Nodes within the trees are
+not exposed publicly.
+Tree and traversal operations implement relaxed balance factors, and
+parent-pointer node structures.
+Hooks for node comparison, error handling and logging capabilities are provided
+via a callback interface.</p>
+
+<p>PHP version 5</p>
+</div>
+</div>
+<dl class="file-info">
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Author</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">
+<a href="mailto:mondrake@mondrake.org">mondrake</a>
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Category</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">Structures
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">License</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">
+<a href="http://www.gnu.org/licenses/gpl.html">GNU GPLv3</a>
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Link</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">
+<a href="http://github.com/mondrake/Rbppavl">http://github.com/mondrake/Rbppavl</a>
+         
+    </dd>
+<dt xmlns:dbx="http://docblox-project.org/xsl/functions">Package</dt>
+<dd xmlns:dbx="http://docblox-project.org/xsl/functions">Rbppavl
+         
+    </dd>
+</dl>
+<a name="classes" class="anchor"></a><a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\RbppavlTraverser" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\RbppavlTraverser<div class="to-top"><a href="#top">jump to top</a></div>
+</h2>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
+<small class="package"><b>Package: </b>Rbppavl</small><p class="short-description">AVL tree in-order traverser.</p>
+<div class="long-description"><p>Implements parent-pointer node structures.</p>
+</div>
+<dl class="class-info">
+<dt>Parent(s)</dt>
+<dd>\RbppavlCommon</dd>
+<dt>Author</dt>
+<dd>
+<a href="mailto:mondrake@mondrake.org">mondrake</a>
+         
+    </dd>
+<dt>Category</dt>
+<dd>Structures
+         
+    </dd>
+<dt>License</dt>
+<dd>
+<a href="http://www.gnu.org/licenses/gpl.html">GNU GPLv3</a>
+         
+    </dd>
+<dt>Link</dt>
+<dd>
+<a href="http://github.com/mondrake/Rbppavl">http://github.com/mondrake/Rbppavl</a>
+         
+    </dd>
+</dl>
+<h3>Properties</h3>
+<div>
+<a id="\RbppavlTraverser::$_node" class="anchor"></a><div class="property private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private">
+                 <span class="highlight">$_node</span>= ''
+                </code><div class="description"><p class="short-description">Cursor to current node in tree</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Type</dt>
+<dd>RbppavlNode
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::$_tree" class="anchor"></a><div class="property private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private">
+                 <span class="highlight">$_tree</span>= ''
+                </code><div class="description"><p class="short-description">Tree being traversed</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Type</dt>
+<dd>RbppavlTree
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::$cbc" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$cbc</span>= 'null'
+                </code><div class="description">
+<span class="attribute">inherited</span><p class="short-description">Callback interface instance</p>
+<small>Inherited from:
+                        </small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Default value</strong><code>null</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Inherited_from</dt>
+<dd>\RbppavlCommon::$cbc
+         
+    </dd>
+<dt>Type</dt>
+<dd>RbppavlCbInterface
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::$debugMode" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$debugMode</span>= 'false'
+                </code><div class="description">
+<span class="attribute">inherited</span><p class="short-description">Debug mode - if true, tree management operation are verbosely diagnosed</p>
+<small>Inherited from:
+                        </small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Default value</strong><code>false</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Inherited_from</dt>
+<dd>\RbppavlCommon::$debugMode
+         
+    </dd>
+<dt>Type</dt>
+<dd>boolean
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::$memoryLimit" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$memoryLimit</span>= '0'
+                </code><div class="description">
+<span class="attribute">inherited</span><p class="short-description">If different from 0, insertions of new nodes are preliminary checked
+vs remaining memory available</p>
+<small>Inherited from:
+                        </small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Default value</strong><code>0</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Inherited_from</dt>
+<dd>\RbppavlCommon::$memoryLimit
+         
+    </dd>
+<dt>Type</dt>
+<dd>integer
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::$memoryThreshold" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$memoryThreshold</span>= '0'
+                </code><div class="description">
+<span class="attribute">inherited</span><p class="short-description">In combination with $memoryLimit, defines the minimum memory to be kept
+free during tree insertion operations</p>
+<small>Inherited from:
+                        </small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Default value</strong><code>0</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Inherited_from</dt>
+<dd>\RbppavlCommon::$memoryThreshold
+         
+    </dd>
+<dt>Type</dt>
+<dd>integer
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::$status" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$status</span>= 'array('level'         =&gt; RBPPAVL_NOTICE'
+                </code><div class="description">
+<span class="attribute">inherited</span><p class="short-description">Internal status of tree management classes (RbppavlTree, RbppavlTraverser)</p>
+<small>Inherited from:
+                        </small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>Array keys:
+- 'level'         status level complying to RFC 3164
+- 'code'          status code as per _message()
+- 'messageParams' array of parameters to qualify the message text</p>
+</div>
+<strong>Default value</strong><code>array('level'         =&gt; RBPPAVL_NOTICE</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd>n/a</dd>
+<dt>Inherited_from</dt>
+<dd>\RbppavlCommon::$status
+         
+    </dd>
+<dt>Type</dt>
+<dd>array
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<h3>Methods</h3>
+<div>
+<a id="\RbppavlTraverser::__call()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__call</span><span class="nb-faded-text">(
+          \string $name, \array $args
+          )
+        </span>
+        :
+          \null</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Handles calls to inaccessible methods</p>
+<small>Inherited from:
+                    \RbppavlCommon::__call()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$name</th>
+<td>\string</td>
+<td><em><p>the method invoked</p></em></td>
+</tr>
+<tr>
+<th>$args</th>
+<td>\array</td>
+<td><em><p>the array representing the arguments passed to the method</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\null</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Internal</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::__construct()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__construct</span><span class="nb-faded-text">(
+          <a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a> $tree
+              =
+              null, \boolean $debugMode
+              =
+              false
+          )
+        </span>
+        :
+          \null</code><div class="description"><p class="short_description">Initializes the traverser.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tree</th>
+<td><a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a></td>
+<td><em><p>the tree to be traversed</p></em></td>
+</tr>
+<tr>
+<th>$debugMode</th>
+<td>\boolean</td>
+<td><em><p>if true produces verbose debugging on tree operations</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\null</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::__get()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__get</span><span class="nb-faded-text">(
+          \string $name
+          )
+        </span>
+        :
+          \null</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Handles reads to inaccessible properties</p>
+<small>Inherited from:
+                    \RbppavlCommon::__get()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$name</th>
+<td>\string</td>
+<td><em><p>the property invoked</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\null</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Internal</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::__set()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__set</span><span class="nb-faded-text">(
+          \string $name, \array $value
+          )
+        </span>
+        :
+          \null</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Handles writes to inaccessible properties</p>
+<small>Inherited from:
+                    \RbppavlCommon::__set()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$name</th>
+<td>\string</td>
+<td><em><p>the property invoked</p></em></td>
+</tr>
+<tr>
+<th>$value</th>
+<td>\array</td>
+<td><em><p>the value attempted to be written</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\null</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Internal</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::checkData()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">checkData</span><span class="nb-faded-text">(
+          \object $data, \string $method
+          )
+        </span>
+        :
+          \boolean</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Checks if the data object passed to a method is valid.</p>
+<small>Inherited from:
+                    \RbppavlCommon::checkData()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$data</th>
+<td>\object</td>
+<td><em><p>the data object</p></em></td>
+</tr>
+<tr>
+<th>$method</th>
+<td>\string</td>
+<td><em><p>the class method calling the function</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\boolean</td>
+<td>true if $data is a valid object, false elsewhere</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::curr()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">curr</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \object</code><div class="description"><p class="short_description">Returns the current node's data object.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>data object of current node or null if cursor not initialized yet</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::find()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">find</span><span class="nb-faded-text">(
+          \object $data, \int $mode
+              =
+              RBPPAVL_FIND_EXACT_MATCH
+          )
+        </span>
+        :
+          \object</code><div class="description"><p class="short_description">Searches the tree for the specified data object.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>If found, cursor is set to identified node, and a pointer to the data
+object is returned.
+If there is no matching data object, cursor is set to null and
+and returns null.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$data</th>
+<td>\object</td>
+<td><em><p>data object to be searched</p></em></td>
+</tr>
+<tr>
+<th>$mode</th>
+<td>\int</td>
+<td><em><p>match mode - by default exact match {RBPPAVL_FIND_EXACT_MATCH|RBPPAVL_FIND_PREV_MATCH|RBPPAVL_FIND_NEXT_MATCH}</p>
+</em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>pointer to data object found, or null if not found</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::first()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">first</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \object</code><div class="description"><p class="short_description">Returns the data object with the least value (leftmost).</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>Cursor is set to identified node.</p>
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>the leftmost data object in the tree or null if tree is empty.</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::getMessages()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getMessages</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \array</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Gets an array with Rbppavl diagnostic messages.</p>
+<small>Inherited from:
+                    \RbppavlCommon::getMessages()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>Each array item is itself an array, with first element being the severity
+{RBPPAVL_DEBUG|RBPPAVL_INFO|RBPPAVL_NOTICE|RBPPAVL_WARNING|RBPPAVL_ERROR},
+and the second the unqualified diagnostic text.
+A % sign precedes in the text a parameter identifier; getStatusMessage()
+will replace at run-time the parameters with actual data to qualify the
+message.</p>
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\array</td>
+<td>current Rbppavl diagnostic messages</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::getStatusCode()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getStatusCode</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \int</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Gets current status code.</p>
+<small>Inherited from:
+                    \RbppavlCommon::getStatusCode()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\int</td>
+<td>Current status code</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::getStatusLevel()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getStatusLevel</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \int</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Gets current status level.</p>
+<small>Inherited from:
+                    \RbppavlCommon::getStatusLevel()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\int</td>
+<td>Current status level {RBPPAVL_DEBUG|RBPPAVL_INFO|RBPPAVL_NOTICE|RBPPAVL_WARNING|RBPPAVL_ERROR}</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::getStatusMessage()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getStatusMessage</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Gets current status message.</p>
+<small>Inherited from:
+                    \RbppavlCommon::getStatusMessage()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\string</td>
+<td>Current status message</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::getVersion()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">getVersion</span><span class="nb-faded-text">(
+          \boolean $setStatus
+              =
+              false
+          )
+        </span>
+        :
+          \array</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Gets Rbppavl version and state.</p>
+<small>Inherited from:
+                    \RbppavlCommon::getVersion()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$setStatus</th>
+<td>\boolean</td>
+<td><em><p>if true, internal status is updated and a diagnostic message broadcast</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\array</td>
+<td>an array with [0] = Rbppavl version number and [1] = Rbppavl version state</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::last()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">last</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \object</code><div class="description"><p class="short_description">Returns the data object with the greatest value (rightmost).</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>Cursor is set to identified node.</p>
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>the rightmost data object in the tree or null if tree is empty.</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::next()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">next</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \object</code><div class="description"><p class="short_description">Returns the next data object in in-order sequence.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>Updates the cursor. If there are no more data objects returns null.
+If cursor is not set yet, returns the first data object in in-order sequence.</p>
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>next data object in in-order sequence or null if cursor on rightmost node</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::nodeFind()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">nodeFind</span><span class="nb-faded-text">(
+          <a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a> $tree, \object $data, \object $y, \object $q, \int $dir, \int $mode
+          )
+        </span>
+        :
+          \object</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Finds a node in the tree.</p>
+<small>Inherited from:
+                    \RbppavlCommon::nodeFind()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tree</th>
+<td><a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a></td>
+<td><em><p>the tree to be searched</p></em></td>
+</tr>
+<tr>
+<th>$data</th>
+<td>\object</td>
+<td><em><p>the data object to be found</p></em></td>
+</tr>
+<tr>
+<th>$y</th>
+<td>\object</td>
+<td><em><p>&$y top node to start searching from</p>
+</em></td>
+</tr>
+<tr>
+<th>$q</th>
+<td>\object</td>
+<td><em><p>&$q parent node of the found node</p>
+</em></td>
+</tr>
+<tr>
+<th>$dir</th>
+<td>\int</td>
+<td><em><p>&$dir last direction descended</p>
+</em></td>
+</tr>
+<tr>
+<th>$mode</th>
+<td>\int</td>
+<td><em><p>match mode {RBPPAVL_FIND_EXACT_MATCH|RBPPAVL_FIND_PREV_MATCH|RBPPAVL_FIND_NEXT_MATCH}</p>
+</em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>pointer to the found node or null if not found</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::nodeFirst()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">nodeFirst</span><span class="nb-faded-text">(
+          <a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a> $tree
+          )
+        </span>
+        :
+          \object</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Returns the node with the least value (leftmost).</p>
+<small>Inherited from:
+                    \RbppavlCommon::nodeFirst()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tree</th>
+<td><a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a></td>
+<td><em><p>the tree to be searched</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>the leftmost node in the tree or null if tree is empty.</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::nodeLast()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">nodeLast</span><span class="nb-faded-text">(
+          <a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a> $tree
+          )
+        </span>
+        :
+          \object</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Returns the node with the greatest value (rightmost).</p>
+<small>Inherited from:
+                    \RbppavlCommon::nodeLast()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tree</th>
+<td><a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a></td>
+<td><em><p>the tree to be searched</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>the rightmost node in the tree or null if tree is empty.</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::nodeNext()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">nodeNext</span><span class="nb-faded-text">(
+          <a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a> $tree, \object $node
+          )
+        </span>
+        :
+          \object</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Returns the next node in in-order sequence.</p>
+<small>Inherited from:
+                    \RbppavlCommon::nodeNext()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>If there are no more nodes returns null.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tree</th>
+<td><a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a></td>
+<td><em><p>the tree to be searched</p></em></td>
+</tr>
+<tr>
+<th>$node</th>
+<td>\object</td>
+<td><em><p>node to start searching from</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>next node in in-order sequence or null if rightmost node input</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::nodePrev()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">nodePrev</span><span class="nb-faded-text">(
+          <a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a> $tree, \object $node
+          )
+        </span>
+        :
+          \object</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Returns the previous node in in-order sequence.</p>
+<small>Inherited from:
+                    \RbppavlCommon::nodePrev()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>If there are no more nodes returns null.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tree</th>
+<td><a href="db_RbppavlTree.html#%5CRbppavlTree">\RbppavlTree</a></td>
+<td><em><p>the tree to be searched</p></em></td>
+</tr>
+<tr>
+<th>$node</th>
+<td>\object</td>
+<td><em><p>node to start searching from</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>previous node in in-order sequence or null if leftmost node input</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::prev()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">prev</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \object</code><div class="description"><p class="short_description">Returns the previous data object in in-order sequence.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>Updates the cursor. If there are no more data objects returns null.
+If cursor is not set yet, returns the last data object in in-order sequence.</p>
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\object</td>
+<td>previous data object in in-order sequence or null if cursor on leftmost node</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::resetStatus()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">resetStatus</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          \null</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Resets internal status.</p>
+<small>Inherited from:
+                    \RbppavlCommon::resetStatus()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\null</td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::returnBytes()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">returnBytes</span><span class="nb-faded-text">(
+          \int | \string $size
+          )
+        </span>
+        :
+          \int</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Converts a short for memory size into number of bytes.</p>
+<small>Inherited from:
+                    \RbppavlCommon::returnBytes()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$size</th>
+<td>\int | \string</td>
+<td><em><p>a size number in bytes, or KBytes (nnnK), or MBytes (nnnM), or GBytes (nnnG)</p>
+</em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\int</td>
+<td>number of bytes</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::setMessages()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">setMessages</span><span class="nb-faded-text">(
+          \array $table
+          )
+        </span>
+        :
+          \the</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Sets Rbppavl diagnostic messages.</p>
+<small>Inherited from:
+                    \RbppavlCommon::setMessages()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>Each array item of the input arrayis itself an array, with first
+element being the severity {RBPPAVL_DEBUG|RBPPAVL_INFO|RBPPAVL_NOTICE|RBPPAVL_WARNING|RBPPAVL_ERROR},
+and the second the unqualified diagnostic text.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$table</th>
+<td>\array</td>
+<td><em><p>Rbppavl diagnostic messages</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\the</td>
+<td>new complete diagnostic messages map</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Api</dt>
+<dd>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::setStatus()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">setStatus</span><span class="nb-faded-text">(
+          \int $id, \array $params
+              =
+              null, \boolean $reset
+              =
+              false
+          )
+        </span>
+        :
+          \null</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Sets internal status</p>
+<small>Inherited from:
+                    \RbppavlCommon::setStatus()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>Internal status is updated with the severity level as identified by the message id.
+Diagnostic message is passed over to the callback interface.
+In case of RBPPAVL_ERROR, error handling is passed over to the callback interface;
+if callback interface is not instantiated yet, a standard exception is thrown.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$id</th>
+<td>\int</td>
+<td><em><p>the id of the diagnostic message</p></em></td>
+</tr>
+<tr>
+<th>$params</th>
+<td>\array</td>
+<td><em><p>the parameters to qualify the message</p></em></td>
+</tr>
+<tr>
+<th>$reset</th>
+<td>\boolean</td>
+<td><em><p>if true, it is a reset call</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\null</td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\RbppavlTraverser::txt()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">txt</span><span class="nb-faded-text">(
+          \int $id, \array $params
+              =
+              null
+          )
+        </span>
+        :
+          \string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Returns a fully qualified diagnostic message.</p>
+<small>Inherited from:
+                    \RbppavlCommon::txt()</small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$id</th>
+<td>\int</td>
+<td><em><p>id of the diagnostic message</p></em></td>
+</tr>
+<tr>
+<th>$params</th>
+<td>\array</td>
+<td><em><p>parameters to qualify the message</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>\string</td>
+<td>fully qualified diagnostic text</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox 0.16.0</a>.
+    </small></body></html>

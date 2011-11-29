@@ -1,0 +1,152 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Rbppavl</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/jquery-ui.css" type="text/css"></link><link rel="stylesheet" href="css/docblox/jquery-ui-1.8.16.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.tools.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
+            $(document).ready(function() {
+                $(".filetree").treeview({
+                    collapsed: true,
+                    persist: "cookie"
+                });
+
+                $("#accordion").accordion({
+                    collapsible: true,
+                    autoHeight:  false,
+                    fillSpace:   true
+                });
+
+                $(".tabs").tabs();
+            });
+        </script></head><body><script xmlns="" type="text/javascript" src="js/sidebar.js"></script><div xmlns="" id="sidebar">
+<div id="sidebar-header">
+<h1>Rbppavl</h1>
+<div style="clear: both"></div>
+</div>
+<div id="sidebar-nav">
+<h3 id="sidebar-dashboard">
+<img class="icon" src="css/docblox/images/icons/dashboard.png" alt="Dashboard"><a href="content.html" class="link" target="content">Dashboard</a>
+</h3>
+<div style="display: none"></div>
+<h3 id="sidebar-api">
+<img src="css/docblox/images/icons/book.png" alt="API"><a href="#api">API</a>
+</h3>
+<div class="sidebar-section"><div style="padding: 0px;"><ul id="api-" class="filetree">
+<!--Class|Interface level--><li class="closed">
+<span class="interface"><a href="db_RbppavlCbInterface.html#%5CRbppavlCbInterface" target="content">\RbppavlCbInterface</a></span><ul class="filetree">
+<li><span class="method"><a class="public" href="db_RbppavlCbInterface.html#%5CRbppavlCbInterface::compare()" target="content">compare</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlCbInterface.html#%5CRbppavlCbInterface::diagnosticMessage()" target="content">diagnosticMessage</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlCbInterface.html#%5CRbppavlCbInterface::dump()" target="content">dump</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlCbInterface.html#%5CRbppavlCbInterface::errorHandler()" target="content">errorHandler</a></span></li>
+</ul>
+</li>
+<!--Class|Interface level--><li class="closed">
+<span class="class"><a href="db_RbppavlTraverser.html#%5CRbppavlTraverser" target="content">\RbppavlTraverser</a></span><ul class="filetree">
+<li><span class="method"><a class="public" href="db_RbppavlTraverser.html#%5CRbppavlTraverser::__construct()" target="content">__construct</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTraverser.html#%5CRbppavlTraverser::curr()" target="content">curr</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTraverser.html#%5CRbppavlTraverser::find()" target="content">find</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTraverser.html#%5CRbppavlTraverser::first()" target="content">first</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTraverser.html#%5CRbppavlTraverser::getMessages()" target="content">getMessages</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTraverser.html#%5CRbppavlTraverser::getStatusCode()" target="content">getStatusCode</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTraverser.html#%5CRbppavlTraverser::getStatusLevel()" target="content">getStatusLevel</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTraverser.html#%5CRbppavlTraverser::getStatusMessage()" target="content">getStatusMessage</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTraverser.html#%5CRbppavlTraverser::getVersion()" target="content">getVersion</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTraverser.html#%5CRbppavlTraverser::last()" target="content">last</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTraverser.html#%5CRbppavlTraverser::next()" target="content">next</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTraverser.html#%5CRbppavlTraverser::prev()" target="content">prev</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTraverser.html#%5CRbppavlTraverser::setMessages()" target="content">setMessages</a></span></li>
+</ul>
+</li>
+<!--Class|Interface level--><li class="closed">
+<span class="class"><a href="db_RbppavlTree.html#%5CRbppavlTree" target="content">\RbppavlTree</a></span><ul class="filetree">
+<li><span class="method"><a class="public" href="db_RbppavlTree.html#%5CRbppavlTree::__construct()" target="content">__construct</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTree.html#%5CRbppavlTree::debugLevelOrderToArray()" target="content">debugLevelOrderToArray</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTree.html#%5CRbppavlTree::debugValidate()" target="content">debugValidate</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTree.html#%5CRbppavlTree::delete()" target="content">delete</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTree.html#%5CRbppavlTree::find()" target="content">find</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTree.html#%5CRbppavlTree::getCount()" target="content">getCount</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTree.html#%5CRbppavlTree::getMessages()" target="content">getMessages</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTree.html#%5CRbppavlTree::getStatistics()" target="content">getStatistics</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTree.html#%5CRbppavlTree::getStatusCode()" target="content">getStatusCode</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTree.html#%5CRbppavlTree::getStatusLevel()" target="content">getStatusLevel</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTree.html#%5CRbppavlTree::getStatusMessage()" target="content">getStatusMessage</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTree.html#%5CRbppavlTree::getVersion()" target="content">getVersion</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTree.html#%5CRbppavlTree::insert()" target="content">insert</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTree.html#%5CRbppavlTree::replace()" target="content">replace</a></span></li>
+<li><span class="method"><a class="public" href="db_RbppavlTree.html#%5CRbppavlTree::setMessages()" target="content">setMessages</a></span></li>
+</ul>
+</li>
+</ul></div></div>
+<h3 id="sidebar-files">
+<img src="css/docblox/images/icons/files.png" alt="Files"><a href="#files">Files</a>
+</h3>
+<div class="sidebar-section">
+<div class="search-bar">
+<a href="#" onclick="$(this).parent().next().find('.collapsable-hitarea').click(); return false;"><img src="images/collapse_all.png" title="Collapse all" alt="Collapse all"></a><a href="#" onclick="$(this).parent().next().find('.expandable-hitarea').click(); return false;"><img src="images/expand_all.png" title="Expand all" alt="Expand all"></a><div><input type="text" onkeyup="tree_search(this);"></div>
+</div>
+<ul class="sidebar-nav-tree">
+<li class="closed">
+<span class="file"><a href="db_Rbppavl.html" target="content">\Rbppavl.php</a></span><ul id="files_5bc00d6ec41c9f95ed99b8abcc8f861b" class="filetree">
+<li><span class="constant"><a href="db_Rbppavl.html#::RBPPAVL_VERSION_NUMBER" target="content">RBPPAVL_VERSION_NUMBER<br></a></span></li>
+<li><span class="constant"><a href="db_Rbppavl.html#::RBPPAVL_VERSION_STATE" target="content">RBPPAVL_VERSION_STATE<br></a></span></li>
+<li><span class="constant"><a href="db_Rbppavl.html#::RBPPAVL_DEBUG" target="content">RBPPAVL_DEBUG<br></a></span></li>
+<li><span class="constant"><a href="db_Rbppavl.html#::RBPPAVL_INFO" target="content">RBPPAVL_INFO<br></a></span></li>
+<li><span class="constant"><a href="db_Rbppavl.html#::RBPPAVL_NOTICE" target="content">RBPPAVL_NOTICE<br></a></span></li>
+<li><span class="constant"><a href="db_Rbppavl.html#::RBPPAVL_WARNING" target="content">RBPPAVL_WARNING<br></a></span></li>
+<li><span class="constant"><a href="db_Rbppavl.html#::RBPPAVL_ERROR" target="content">RBPPAVL_ERROR<br></a></span></li>
+<li><span class="constant"><a href="db_Rbppavl.html#::RBPPAVL_TEXT" target="content">RBPPAVL_TEXT<br></a></span></li>
+<li><span class="constant"><a href="db_Rbppavl.html#::RBPPAVL_VALIDATION_OK" target="content">RBPPAVL_VALIDATION_OK<br></a></span></li>
+<li><span class="constant"><a href="db_Rbppavl.html#::RBPPAVL_VALIDATION_HEIGHT_FAILURE" target="content">RBPPAVL_VALIDATION_HEIGHT_FAILURE<br></a></span></li>
+<li><span class="constant"><a href="db_Rbppavl.html#::RBPPAVL_VALIDATION_BALANCE_FAILURE" target="content">RBPPAVL_VALIDATION_BALANCE_FAILURE<br></a></span></li>
+<li><span class="constant"><a href="db_Rbppavl.html#::RBPPAVL_FIND_EXACT_MATCH" target="content">RBPPAVL_FIND_EXACT_MATCH<br></a></span></li>
+<li><span class="constant"><a href="db_Rbppavl.html#::RBPPAVL_FIND_PREV_MATCH" target="content">RBPPAVL_FIND_PREV_MATCH<br></a></span></li>
+<li><span class="constant"><a href="db_Rbppavl.html#::RBPPAVL_FIND_NEXT_MATCH" target="content">RBPPAVL_FIND_NEXT_MATCH<br></a></span></li>
+<li><span class="class"><a href="db_Rbppavl.html#%5CRbppavl" target="content">Rbppavl<br></a></span></li>
+</ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_RbppavlCbInterface.html" target="content">\RbppavlCbInterface.php</a></span><ul id="files_2f561ddc3c8fe36249d64abae7aa88b6" class="filetree"><li><span class="interface"><a href="db_RbppavlCbInterface.html#%5CRbppavlCbInterface" target="content">RbppavlCbInterface<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_RbppavlCommon.html" target="content">\RbppavlCommon.php</a></span><ul id="files_e64ae0b993cede48b8f4836eab310f03" class="filetree"></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_RbppavlNode.html" target="content">\RbppavlNode.php</a></span><ul id="files_43f45893c821deb7f276f1d2226046a8" class="filetree"><li><span class="class"><a href="db_RbppavlNode.html#%5CRbppavlNode" target="content">RbppavlNode<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_RbppavlTraverser.html" target="content">\RbppavlTraverser.php</a></span><ul id="files_41f2e20adb48c776d44ae18d22d9db25" class="filetree"><li><span class="class"><a href="db_RbppavlTraverser.html#%5CRbppavlTraverser" target="content">RbppavlTraverser<br></a></span></li></ul>
+</li>
+<li class="closed">
+<span class="file"><a href="db_RbppavlTree.html" target="content">\RbppavlTree.php</a></span><ul id="files_55f19e286f74e68a0a29140aeb42ff5b" class="filetree"><li><span class="class"><a href="db_RbppavlTree.html#%5CRbppavlTree" target="content">RbppavlTree<br></a></span></li></ul>
+</li>
+</ul>
+</div>
+<h3 id="sidebar-packages">
+<img src="css/docblox/images/icons/packages.png" alt="Packages"><a href="#packages">Packages</a>
+</h3>
+<div class="sidebar-section sidebar-tree">
+<div class="search-bar">
+<a href="#" onclick="$(this).parent().next().find('.collapsable-hitarea').click(); return false;"><img src="images/collapse_all.png" title="Collapse all" alt="Collapse all"></a><a href="#" onclick="$(this).parent().next().find('.expandable-hitarea').click(); return false;"><img src="images/expand_all.png" title="Expand all" alt="Expand all"></a><div><input type="text" onkeyup="tree_search(this);"></div>
+</div>
+<ul class="sidebar-nav-tree"><li class="closed">
+<span class="folder">Rbppavl</span><ul>
+<li><span class="class"><a href="db_Rbppavl.html#%5CRbppavl" target="content">Rbppavl</a></span></li>
+<li><span class="interface"><a href="db_RbppavlCbInterface.html#%5CRbppavlCbInterface" target="content">RbppavlCbInterface</a></span></li>
+<li><span class="class"><a href="db_RbppavlNode.html#%5CRbppavlNode" target="content">RbppavlNode</a></span></li>
+<li><span class="class"><a href="db_RbppavlTraverser.html#%5CRbppavlTraverser" target="content">RbppavlTraverser</a></span></li>
+<li><span class="class"><a href="db_RbppavlTree.html#%5CRbppavlTree" target="content">RbppavlTree</a></span></li>
+</ul>
+</li></ul>
+</div>
+<h3 id="sidebar-charts">
+<img src="css/docblox/images/icons/chart.png" alt="Charts"><a href="#charts">Charts</a>
+</h3>
+<div class="sidebar-section"><ul style="list-style-image: url('css/docblox/images/icons/chart15x12.png');"><li><a href="graph.html" target="content">Class Inheritance Diagram</a></li></ul></div>
+<h3 id="sidebar-reports">
+<img src="css/docblox/images/icons/reports.png" alt="Reports"><a href="#reports">Reports</a>
+</h3>
+<div class="sidebar-section"><ul style="list-style-image: url('css/docblox/images/icons/reports9x12.png');">
+<li><a href="report_markers.html" target="content">Markers (TODO/FIXME)</a></li>
+<li><a href="report_parse_markers.html" target="content">Parsing errors</a></li>
+<li><a href="report_deprecated.html" target="content">Deprecated elements</a></li>
+</ul></div>
+</div>
+<div id="sidebar-footer">
+        Documentation is generated by <a href="http://docblox-project.org" target="_top"><img src="images/icon48x48.png" height="12" align="top" alt="Logo"> DocBlox 0.16.0</a>, images courtesy of <a href="http://glyphish.com/" target="_top">Glyphish</a>
+</div>
+</div></body></html>

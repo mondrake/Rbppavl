@@ -1,0 +1,115 @@
+
+/**
+ * Generic elements.
+ */
+body {
+  color: #000;
+  background: #fff;
+  font: normal 81.3%/1.538em "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+a {
+  color: #0074BD;
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  margin: 10px 0;
+}
+h1 {
+  font-size: 1.538em;
+}
+h2 {
+  font-size: 1.385em;
+}
+h3 {
+  font-size: 1.231em;
+}
+h4 {
+  font-size: 1.154em;
+}
+h5,
+h6 {
+  font-size: 1.077em;
+}
+p {
+  margin: 1em 0;
+}
+s,
+strike,
+del {
+  text-decoration: line-through;
+}
+big {
+  font-size: larger;
+}
+small {
+  font-size: smaller;
+}
+sub {
+  vertical-align: sub;
+  font-size: smaller;
+  line-height: normal;
+}
+sup {
+  vertical-align: super;
+  font-size: smaller;
+  line-height: normal;
+}
+quote,
+code {
+  margin: .5em 0;
+}
+code,
+pre,
+kbd {
+  font-size: 1.231em;
+}
+pre {
+  margin: 0.5em 0;
+  white-space: pre-wrap;
+}
+
+/**
+ * Tables.
+ */
+table {
+  font-size: 0.923em;
+  margin: 0 0 10px;
+  border: 1px solid #bebfb9;
+  color: #000;
+  background: #e1e2dc;
+  font-weight: normal;
+}
+table tr.notice { 
+  color: #228B22;
+}
+table tr.warning { 
+  color: #FFFF00; 
+  background: #696969;
+}
+table tr.error { 
+  color: #FF0000;
+  font-weight: bold;
+}
+table td,
+table th {
+  vertical-align: middle;
+  padding: 2px 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-spacing: 0px;
+  border-color: #bebfb9;
+  border-collapse:collapse; 
+}
+table th {
+  font-weight: bold;
+}
+table th a {
+  display: block;
+  position: relative;
+}
