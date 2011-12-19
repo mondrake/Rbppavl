@@ -107,8 +107,7 @@ parent-pointer node structures.
 Hooks for node comparison, error handling and logging capabilities are provided
 via a callback interface.</p>
 
-<p>PHP version 5</p>
-</div>
+<p>PHP version 5</p></div>
 </div>
 <dl class="file-info">
 <dt xmlns:dbx="http://docblox-project.org/xsl/functions">Author</dt>
@@ -139,8 +138,7 @@ via a callback interface.</p>
 </h2>
 <div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
 <small class="package"><b>Package: </b>Rbppavl</small><p class="short-description">Rbppavl tree node.</p>
-<div class="long-description"><p>Class with node methods.</p>
-</div>
+<div class="long-description"><p>Class with node methods.</p></div>
 <dl class="class-info">
 <dt>Parent(s)</dt>
 <dd><a href="db_Rbppavl.html#%5CRbppavl">\Rbppavl</a></dd>
@@ -175,8 +173,7 @@ via a callback interface.</p>
                  <span class="highlight">$data</span>= ''
                 </code><div class="description"><p class="short-description">Pointer to the node's data object (payload)</p></div>
 <div class="code-tabs">
-<div class="long-description">
-</div>
+<div class="long-description"></div>
 <strong>Details</strong><dl class="property-info">
 <dt>Type</dt>
 <dd>n/a</dd>
@@ -193,8 +190,7 @@ via a callback interface.</p>
                  <span class="highlight">$height</span>= ''
                 </code><div class="description"><p class="short-description">Height of the node's tree</p></div>
 <div class="code-tabs">
-<div class="long-description">
-</div>
+<div class="long-description"></div>
 <strong>Details</strong><dl class="property-info">
 <dt>Type</dt>
 <dd>n/a</dd>
@@ -211,8 +207,7 @@ via a callback interface.</p>
                  <span class="highlight">$link</span>= 'array( null'
                 </code><div class="description"><p class="short-description">Pointers to the node's left and right subtrees</p></div>
 <div class="code-tabs">
-<div class="long-description">
-</div>
+<div class="long-description"></div>
 <strong>Default value</strong><code>array( null</code><strong>Details</strong><dl class="property-info">
 <dt>Type</dt>
 <dd>n/a</dd>
@@ -229,8 +224,7 @@ via a callback interface.</p>
                  <span class="highlight">$parent</span>= 'null'
                 </code><div class="description"><p class="short-description">Pointer to the node's parent node</p></div>
 <div class="code-tabs">
-<div class="long-description">
-</div>
+<div class="long-description"></div>
 <strong>Default value</strong><code>null</code><strong>Details</strong><dl class="property-info">
 <dt>Type</dt>
 <dd>n/a</dd>
@@ -247,14 +241,13 @@ via a callback interface.</p>
 <div>
 <a id="\RbppavlNode::__construct()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__construct</span><span class="nb-faded-text">(
-          \object $tree, \object $data, \object $parent
+          object $tree, object $data, object $parent
           )
         </span>
         :
           void</code><div class="description"><p class="short_description">Constructs a RbppavlNode instance.</p></div>
 <div class="code-tabs">
-<div class="long-description">
-</div>
+<div class="long-description"></div>
 <strong>Parameters</strong><table class="argument-info">
 <thead><tr>
 <th>Name</th>
@@ -263,17 +256,17 @@ via a callback interface.</p>
 </tr></thead>
 <tr>
 <th>$tree</th>
-<td>\object</td>
+<td>object</td>
 <td><em><p>the caller tree</p></em></td>
 </tr>
 <tr>
 <th>$data</th>
-<td>\object</td>
+<td>object</td>
 <td><em><p>the object of the node</p></em></td>
 </tr>
 <tr>
 <th>$parent</th>
-<td>\object</td>
+<td>object</td>
 <td><em><p>the parent RbppavlNode</p></em></td>
 </tr>
 </table>
@@ -292,7 +285,7 @@ via a callback interface.</p>
           )
         </span>
         :
-          \int</code><div class="description"><p class="short_description">Calculate the node's height.</p></div>
+          int</code><div class="description"><p class="short_description">Calculate the node's height.</p></div>
 <div class="code-tabs">
 <div class="long-description"><p>This method should be used only for debugging purposes.</p>
 
@@ -302,15 +295,14 @@ node upwards. This method is used by debugNodeValidate() to ensure
 the height property of a node corresponds to the actual height.
 In normal mode, the 'height' property stores the current node's
 height, and is updated by RbppavlTree methods to keep it consistent
-across tree balancing operations.</p>
-</div>
+across tree balancing operations.</p></div>
 <strong>Returns</strong><table class="argument-info">
 <thead><tr>
 <th>Type</th>
 <th>Description</th>
 </tr></thead>
 <tr>
-<td>\int</td>
+<td>int</td>
 <td>the node's height</td>
 </tr>
 </table>
@@ -329,18 +321,17 @@ across tree balancing operations.</p>
           )
         </span>
         :
-          \int</code><div class="description"><p class="short_description">Returns the current value of the node's balancing factor.</p></div>
+          int</code><div class="description"><p class="short_description">Returns the current value of the node's balancing factor.</p></div>
 <div class="code-tabs">
 <div class="long-description"><p>Balance is determined from the difference of the heights of the
-node's subtrees.</p>
-</div>
+node's subtrees.</p></div>
 <strong>Returns</strong><table class="argument-info">
 <thead><tr>
 <th>Type</th>
 <th>Description</th>
 </tr></thead>
 <tr>
-<td>\int</td>
+<td>int</td>
 <td>value of the balancing factor</td>
 </tr>
 </table>
@@ -355,18 +346,17 @@ node's subtrees.</p>
 </div>
 <a id="\RbppavlNode::debugNodeValidate()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">debugNodeValidate</span><span class="nb-faded-text">(
-          \int $balanceFactor, \int $status, \boolean $recurse
+          int $balanceFactor, int $status, boolean $recurse
               =
               true
           )
         </span>
         :
-          \object</code><div class="description"><p class="short_description">Validates the node's compliance to AVL rules.</p></div>
+          object</code><div class="description"><p class="short_description">Validates the node's compliance to AVL rules.</p></div>
 <div class="code-tabs">
 <div class="long-description"><p>This method should be used only for debugging purposes.</p>
 
-<p>Called by RbppavlTree::debugValidate().</p>
-</div>
+<p>Called by RbppavlTree::debugValidate().</p></div>
 <strong>Parameters</strong><table class="argument-info">
 <thead><tr>
 <th>Name</th>
@@ -375,18 +365,18 @@ node's subtrees.</p>
 </tr></thead>
 <tr>
 <th>$balanceFactor</th>
-<td>\int</td>
+<td>int</td>
 <td><em><p>balancing factor</p></em></td>
 </tr>
 <tr>
 <th>$status</th>
-<td>\int</td>
+<td>int</td>
 <td><em><p>&$status failure status</p>
 </em></td>
 </tr>
 <tr>
 <th>$recurse</th>
-<td>\boolean</td>
+<td>boolean</td>
 <td><em><p>if true, recursively validates all the nodes in the node's subtrees</p>
 </em></td>
 </tr>
@@ -397,7 +387,7 @@ node's subtrees.</p>
 <th>Description</th>
 </tr></thead>
 <tr>
-<td>\object</td>
+<td>object</td>
 <td>pointer to the node failing AVL rules, or null if node is compliant</td>
 </tr>
 </table>
@@ -416,18 +406,17 @@ node's subtrees.</p>
           )
         </span>
         :
-          \null</code><div class="description"><p class="short_description">Resets the node's height.</p></div>
+          null</code><div class="description"><p class="short_description">Resets the node's height.</p></div>
 <div class="code-tabs">
 <div class="long-description"><p>Height is determined from the value of the 'height' property
-of the subtrees.</p>
-</div>
+of the subtrees.</p></div>
 <strong>Returns</strong><table class="argument-info">
 <thead><tr>
 <th>Type</th>
 <th>Description</th>
 </tr></thead>
 <tr>
-<td>\null</td>
+<td>null</td>
 <td></td>
 </tr>
 </table>
@@ -442,18 +431,17 @@ of the subtrees.</p>
 </div>
 <a id="\RbppavlNode::wipe()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">wipe</span><span class="nb-faded-text">(
-          \object $ctr
+          object $ctr
           )
         </span>
         :
-          \int</code><div class="description"><p class="short_description">Forces removal of the node and of the associated data from the tree.</p></div>
+          int</code><div class="description"><p class="short_description">Forces removal of the node and of the associated data from the tree.</p></div>
 <div class="code-tabs">
 <div class="long-description"><p>Recursively remove the node, all the nodes in its subtrees, and all
 associated data objects without recalculating heights and balancing
 factors of the rest of the tree.
 Called by RbppavlTree::_destruct() to orderly free memory when
-destructuring a tree object.</p>
-</div>
+destructuring a tree object.</p></div>
 <strong>Parameters</strong><table class="argument-info">
 <thead><tr>
 <th>Name</th>
@@ -462,7 +450,7 @@ destructuring a tree object.</p>
 </tr></thead>
 <tr>
 <th>$ctr</th>
-<td>\object</td>
+<td>object</td>
 <td><em><p>&$ctr counter of nodes wiped from the tree</p>
 </em></td>
 </tr>
@@ -473,7 +461,7 @@ destructuring a tree object.</p>
 <th>Description</th>
 </tr></thead>
 <tr>
-<td>\int</td>
+<td>int</td>
 <td>number of nodes wiped from the tree</td>
 </tr>
 </table>
@@ -489,5 +477,5 @@ destructuring a tree object.</p>
 </div>
 </div>
 </div>
-<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox 0.16.0</a>.
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox 0.17.1</a>.
     </small></body></html>

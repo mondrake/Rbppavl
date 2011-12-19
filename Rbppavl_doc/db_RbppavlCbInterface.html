@@ -103,8 +103,7 @@ parent-pointer node structures.
 Hooks for node comparison, error handling and logging capabilities are provided
 via a callback interface.</p>
 
-<p>PHP version 5</p>
-</div>
+<p>PHP version 5</p></div>
 </div>
 <dl class="file-info">
 <dt xmlns:dbx="http://docblox-project.org/xsl/functions">Author</dt>
@@ -136,8 +135,7 @@ via a callback interface.</p>
 <div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
 <small class="package"><b>Package: </b>Rbppavl</small><p class="short-description">Rbppavl callback class interface definition.</p>
 <div class="long-description"><p>Defines callback methods needed by instances of RbppavlTree
-and RbppavlTraverser.</p>
-</div>
+and RbppavlTraverser.</p></div>
 <dl class="class-info">
 <dt>Author</dt>
 <dd>
@@ -163,14 +161,13 @@ and RbppavlTraverser.</p>
 <div>
 <a id="\RbppavlCbInterface::compare()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">compare</span><span class="nb-faded-text">(
-          \object $a, \object $b
+          object $a, object $b
           )
         </span>
         :
-          \int</code><div class="description"><p class="short_description">Compares two data objects.</p></div>
+          int</code><div class="description"><p class="short_description">Compares two data objects.</p></div>
 <div class="code-tabs">
-<div class="long-description">
-</div>
+<div class="long-description"></div>
 <strong>Parameters</strong><table class="argument-info">
 <thead><tr>
 <th>Name</th>
@@ -179,12 +176,12 @@ and RbppavlTraverser.</p>
 </tr></thead>
 <tr>
 <th>$a</th>
-<td>\object</td>
+<td>object</td>
 <td><em><p>first data object</p></em></td>
 </tr>
 <tr>
 <th>$b</th>
-<td>\object</td>
+<td>object</td>
 <td><em><p>second data object</p></em></td>
 </tr>
 </table>
@@ -194,7 +191,7 @@ and RbppavlTraverser.</p>
 <th>Description</th>
 </tr></thead>
 <tr>
-<td>\int</td>
+<td>int</td>
 <td>0 if $a == $b -1 if $a &lt; $b 1 if $a &gt; $b</td>
 </tr>
 </table>
@@ -209,16 +206,15 @@ and RbppavlTraverser.</p>
 </div>
 <a id="\RbppavlCbInterface::diagnosticMessage()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">diagnosticMessage</span><span class="nb-faded-text">(
-          \int $severity, \int $id, \string $text, \array $params, \string $qText, \string $className
+          int $severity, int $id, string $text, array $params, string $qText, string $className
               =
               null
           )
         </span>
         :
-          \null</code><div class="description"><p class="short_description">Handles a request to log a diagnostic message.</p></div>
+          null</code><div class="description"><p class="short_description">Handles a request to log a diagnostic message.</p></div>
 <div class="code-tabs">
-<div class="long-description">
-</div>
+<div class="long-description"></div>
 <strong>Parameters</strong><table class="argument-info">
 <thead><tr>
 <th>Name</th>
@@ -227,33 +223,33 @@ and RbppavlTraverser.</p>
 </tr></thead>
 <tr>
 <th>$severity</th>
-<td>\int</td>
+<td>int</td>
 <td><em><p>{RBPPAVL_DEBUG|RBPPAVL_INFO|RBPPAVL_NOTICE|RBPPAVL_WARNING|RBPPAVL_ERROR}</p>
 </em></td>
 </tr>
 <tr>
 <th>$id</th>
-<td>\int</td>
+<td>int</td>
 <td><em><p>id of the diagnostic message</p></em></td>
 </tr>
 <tr>
 <th>$text</th>
-<td>\string</td>
+<td>string</td>
 <td><em><p>unqualified text of the diagnostic message</p></em></td>
 </tr>
 <tr>
 <th>$params</th>
-<td>\array</td>
+<td>array</td>
 <td><em><p>parameters to qualify the message</p></em></td>
 </tr>
 <tr>
 <th>$qText</th>
-<td>\string</td>
+<td>string</td>
 <td><em><p>fully qualified text of the diagnostic message</p></em></td>
 </tr>
 <tr>
 <th>$className</th>
-<td>\string</td>
+<td>string</td>
 <td><em><p>name of the calling class</p></em></td>
 </tr>
 </table>
@@ -263,7 +259,7 @@ and RbppavlTraverser.</p>
 <th>Description</th>
 </tr></thead>
 <tr>
-<td>\null</td>
+<td>null</td>
 <td></td>
 </tr>
 </table>
@@ -278,14 +274,13 @@ and RbppavlTraverser.</p>
 </div>
 <a id="\RbppavlCbInterface::dump()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">dump</span><span class="nb-faded-text">(
-          \object $data
+          object $data
           )
         </span>
         :
-          \mixed</code><div class="description"><p class="short_description">Returns a custom formatting of a data object.</p></div>
+          mixed</code><div class="description"><p class="short_description">Returns a custom formatting of a data object.</p></div>
 <div class="code-tabs">
-<div class="long-description">
-</div>
+<div class="long-description"></div>
 <strong>Parameters</strong><table class="argument-info">
 <thead><tr>
 <th>Name</th>
@@ -294,7 +289,7 @@ and RbppavlTraverser.</p>
 </tr></thead>
 <tr>
 <th>$data</th>
-<td>\object</td>
+<td>object</td>
 <td><em><p>data object</p></em></td>
 </tr>
 </table>
@@ -304,7 +299,7 @@ and RbppavlTraverser.</p>
 <th>Description</th>
 </tr></thead>
 <tr>
-<td>\mixed</td>
+<td>mixed</td>
 <td>customised format of the data object's content.</td>
 </tr>
 </table>
@@ -319,16 +314,15 @@ and RbppavlTraverser.</p>
 </div>
 <a id="\RbppavlCbInterface::errorHandler()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">errorHandler</span><span class="nb-faded-text">(
-          \int $id, \string $text, \array $params, \string $qText, \string $className
+          int $id, string $text, array $params, string $qText, string $className
               =
               null
           )
         </span>
         :
-          \null</code><div class="description"><p class="short_description">Handles an error condition.</p></div>
+          null</code><div class="description"><p class="short_description">Handles an error condition.</p></div>
 <div class="code-tabs">
-<div class="long-description">
-</div>
+<div class="long-description"></div>
 <strong>Parameters</strong><table class="argument-info">
 <thead><tr>
 <th>Name</th>
@@ -337,27 +331,27 @@ and RbppavlTraverser.</p>
 </tr></thead>
 <tr>
 <th>$id</th>
-<td>\int</td>
+<td>int</td>
 <td><em><p>id of the diagnostic message</p></em></td>
 </tr>
 <tr>
 <th>$text</th>
-<td>\string</td>
+<td>string</td>
 <td><em><p>unqualified text of the diagnostic message</p></em></td>
 </tr>
 <tr>
 <th>$params</th>
-<td>\array</td>
+<td>array</td>
 <td><em><p>parameters to qualify the message</p></em></td>
 </tr>
 <tr>
 <th>$qText</th>
-<td>\string</td>
+<td>string</td>
 <td><em><p>fully qualified text of the diagnostic message</p></em></td>
 </tr>
 <tr>
 <th>$className</th>
-<td>\string</td>
+<td>string</td>
 <td><em><p>name of the calling class</p></em></td>
 </tr>
 </table>
@@ -367,7 +361,7 @@ and RbppavlTraverser.</p>
 <th>Description</th>
 </tr></thead>
 <tr>
-<td>\null</td>
+<td>null</td>
 <td></td>
 </tr>
 </table>
@@ -383,5 +377,5 @@ and RbppavlTraverser.</p>
 </div>
 </div>
 </div>
-<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox 0.16.0</a>.
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox 0.17.1</a>.
     </small></body></html>

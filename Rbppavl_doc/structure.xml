@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project version="0.16.0" title="Rbppavl">
+<project version="0.17.1" title="Rbppavl">
   <file path="\Rbppavl.php" hash="5bc00d6ec41c9f95ed99b8abcc8f861b" package="Rbppavl">
     <docblock>
       <description>PHP AVL binary tree</description>
@@ -13,8 +13,7 @@ parent-pointer node structures.
 Hooks for node comparison, error handling and logging capabilities are provided
 via a callback interface.&lt;/p&gt;
 
-&lt;p&gt;PHP version 5&lt;/p&gt;
-</long-description>
+&lt;p&gt;PHP version 5&lt;/p&gt;</long-description>
       <tag line="2" name="category" description="Structures"/>
       <tag line="2" name="package" description="Rbppavl"/>
       <tag line="2" name="author" description="mondrake &lt;mondrake@mondrake.org&gt;"/>
@@ -41,8 +40,7 @@ via a callback interface.&lt;/p&gt;
       <value>'0.1.0'</value>
       <docblock>
         <description>Rbppavl version number</description>
-        <long-description>
-</long-description>
+        <long-description/>
       </docblock>
     </constant>
     <constant namespace="default" line="32" package="Rbppavl">
@@ -50,8 +48,7 @@ via a callback interface.&lt;/p&gt;
       <value>'beta'</value>
       <docblock>
         <description>Rbppavl version state</description>
-        <long-description>
-</long-description>
+        <long-description/>
       </docblock>
     </constant>
     <constant namespace="default" line="45" package="Rbppavl">
@@ -59,8 +56,7 @@ via a callback interface.&lt;/p&gt;
       <value>7</value>
       <docblock>
         <description>'Debug' status level or diagnostic</description>
-        <long-description>
-</long-description>
+        <long-description/>
       </docblock>
     </constant>
     <constant namespace="default" line="50" package="Rbppavl">
@@ -68,8 +64,7 @@ via a callback interface.&lt;/p&gt;
       <value>6</value>
       <docblock>
         <description>'Information' status level or diagnostic</description>
-        <long-description>
-</long-description>
+        <long-description/>
       </docblock>
     </constant>
     <constant namespace="default" line="55" package="Rbppavl">
@@ -77,8 +72,7 @@ via a callback interface.&lt;/p&gt;
       <value>5</value>
       <docblock>
         <description>'Notice' status level or diagnostic</description>
-        <long-description>
-</long-description>
+        <long-description/>
       </docblock>
     </constant>
     <constant namespace="default" line="60" package="Rbppavl">
@@ -86,8 +80,7 @@ via a callback interface.&lt;/p&gt;
       <value>4</value>
       <docblock>
         <description>'Warning' status level or diagnostic - partial failure not preventing further processing</description>
-        <long-description>
-</long-description>
+        <long-description/>
       </docblock>
     </constant>
     <constant namespace="default" line="65" package="Rbppavl">
@@ -95,8 +88,7 @@ via a callback interface.&lt;/p&gt;
       <value>3</value>
       <docblock>
         <description>'Error' status level or diagnostic - failure preventing further processing</description>
-        <long-description>
-</long-description>
+        <long-description/>
       </docblock>
     </constant>
     <constant namespace="default" line="74" package="Rbppavl">
@@ -104,8 +96,7 @@ via a callback interface.&lt;/p&gt;
       <value>-1</value>
       <docblock>
         <description>Identifier for textual diagnostic strings</description>
-        <long-description>
-</long-description>
+        <long-description/>
       </docblock>
     </constant>
     <constant namespace="default" line="79" package="Rbppavl">
@@ -113,8 +104,7 @@ via a callback interface.&lt;/p&gt;
       <value>0</value>
       <docblock>
         <description>AVL Tree validation - success</description>
-        <long-description>
-</long-description>
+        <long-description/>
       </docblock>
     </constant>
     <constant namespace="default" line="85" package="Rbppavl">
@@ -123,8 +113,7 @@ via a callback interface.&lt;/p&gt;
       <docblock>
         <description>AVL Tree validation - failure - node's stored tree height not
 consistent with computed height</description>
-        <long-description>
-</long-description>
+        <long-description/>
       </docblock>
     </constant>
     <constant namespace="default" line="91" package="Rbppavl">
@@ -133,8 +122,7 @@ consistent with computed height</description>
       <docblock>
         <description>AVL Tree validation - failure - actual node's balance factor
 exceeds limit</description>
-        <long-description>
-</long-description>
+        <long-description/>
       </docblock>
     </constant>
     <constant namespace="default" line="96" package="Rbppavl">
@@ -142,8 +130,7 @@ exceeds limit</description>
       <value>0</value>
       <docblock>
         <description>Find exact match</description>
-        <long-description>
-</long-description>
+        <long-description/>
       </docblock>
     </constant>
     <constant namespace="default" line="101" package="Rbppavl">
@@ -151,8 +138,7 @@ exceeds limit</description>
       <value>1</value>
       <docblock>
         <description>Find exact match or closest previous node if exact not found</description>
-        <long-description>
-</long-description>
+        <long-description/>
       </docblock>
     </constant>
     <constant namespace="default" line="106" package="Rbppavl">
@@ -160,8 +146,7 @@ exceeds limit</description>
       <value>2</value>
       <docblock>
         <description>Find exact match or closest next node if exact not found</description>
-        <long-description>
-</long-description>
+        <long-description/>
       </docblock>
     </constant>
     <class final="false" abstract="true" line="126" namespace="default" package="Rbppavl">
@@ -170,8 +155,7 @@ exceeds limit</description>
       <full_name>\Rbppavl</full_name>
       <docblock>
         <description>Baseline Rbppavl class.</description>
-        <long-description>&lt;p&gt;Rbppavl root abstract class. This is empty to set a common parent class for the entire package.&lt;/p&gt;
-</long-description>
+        <long-description>&lt;p&gt;Rbppavl root abstract class. This is empty to set a common parent class for the entire package.&lt;/p&gt;</long-description>
         <tag line="114" name="category" description="Structures"/>
         <tag line="114" name="package" description="Rbppavl"/>
         <tag line="114" name="author" description="mondrake &lt;mondrake@mondrake.org&gt;"/>
@@ -194,8 +178,7 @@ parent-pointer node structures.
 Hooks for node comparison, error handling and logging capabilities are provided
 via a callback interface.&lt;/p&gt;
 
-&lt;p&gt;PHP version 5&lt;/p&gt;
-</long-description>
+&lt;p&gt;PHP version 5&lt;/p&gt;</long-description>
       <tag line="2" name="category" description="Structures"/>
       <tag line="2" name="package" description="Rbppavl"/>
       <tag line="2" name="author" description="mondrake &lt;mondrake@mondrake.org&gt;"/>
@@ -209,8 +192,7 @@ via a callback interface.&lt;/p&gt;
       <docblock>
         <description>Rbppavl callback class interface definition.</description>
         <long-description>&lt;p&gt;Defines callback methods needed by instances of RbppavlTree
-and RbppavlTraverser.&lt;/p&gt;
-</long-description>
+and RbppavlTraverser.&lt;/p&gt;</long-description>
         <tag line="24" name="category" description="Structures"/>
         <tag line="24" name="package" description="Rbppavl"/>
         <tag line="24" name="author" description="mondrake &lt;mondrake@mondrake.org&gt;"/>
@@ -221,16 +203,15 @@ and RbppavlTraverser.&lt;/p&gt;
         <name>compare</name>
         <docblock>
           <description>Compares two data objects.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="38" name="param" description="first data object" type="object" variable="$a">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="38" name="param" description="second data object" type="object" variable="$b">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="38" name="return" description="0 if $a == $b -1 if $a &lt; $b 1 if $a &gt; $b" type="int">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="38" name="api" description=""/>
         </docblock>
@@ -249,13 +230,12 @@ and RbppavlTraverser.&lt;/p&gt;
         <name>dump</name>
         <docblock>
           <description>Returns a custom formatting of a data object.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="52" name="param" description="data object" type="object" variable="$data">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="52" name="return" description="customised format of the data object's content." type="mixed">
-            <type by_reference="false">\mixed</type>
+            <type by_reference="false">mixed</type>
           </tag>
           <tag line="52" name="api" description=""/>
         </docblock>
@@ -269,28 +249,27 @@ and RbppavlTraverser.&lt;/p&gt;
         <name>diagnosticMessage</name>
         <docblock>
           <description>Handles a request to log a diagnostic message.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="63" name="param" description="{RBPPAVL_DEBUG|RBPPAVL_INFO|RBPPAVL_NOTICE|RBPPAVL_WARNING|RBPPAVL_ERROR}" type="int" variable="$severity">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="63" name="param" description="id of the diagnostic message" type="int" variable="$id">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="63" name="param" description="unqualified text of the diagnostic message" type="string" variable="$text">
-            <type by_reference="false">\string</type>
+            <type by_reference="false">string</type>
           </tag>
           <tag line="63" name="param" description="parameters to qualify the message" type="array" variable="$params">
-            <type by_reference="false">\array</type>
+            <type by_reference="false">array</type>
           </tag>
           <tag line="63" name="param" description="fully qualified text of the diagnostic message" type="string" variable="$qText">
-            <type by_reference="false">\string</type>
+            <type by_reference="false">string</type>
           </tag>
           <tag line="63" name="param" description="name of the calling class" type="string" variable="$className">
-            <type by_reference="false">\string</type>
+            <type by_reference="false">string</type>
           </tag>
           <tag line="63" name="return" description="" type="null">
-            <type by_reference="false">\null</type>
+            <type by_reference="false">null</type>
           </tag>
           <tag line="63" name="api" description=""/>
         </docblock>
@@ -329,25 +308,24 @@ and RbppavlTraverser.&lt;/p&gt;
         <name>errorHandler</name>
         <docblock>
           <description>Handles an error condition.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="79" name="param" description="id of the diagnostic message" type="int" variable="$id">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="79" name="param" description="unqualified text of the diagnostic message" type="string" variable="$text">
-            <type by_reference="false">\string</type>
+            <type by_reference="false">string</type>
           </tag>
           <tag line="79" name="param" description="parameters to qualify the message" type="array" variable="$params">
-            <type by_reference="false">\array</type>
+            <type by_reference="false">array</type>
           </tag>
           <tag line="79" name="param" description="fully qualified text of the diagnostic message" type="string" variable="$qText">
-            <type by_reference="false">\string</type>
+            <type by_reference="false">string</type>
           </tag>
           <tag line="79" name="param" description="name of the calling class" type="string" variable="$className">
-            <type by_reference="false">\string</type>
+            <type by_reference="false">string</type>
           </tag>
           <tag line="79" name="return" description="" type="null">
-            <type by_reference="false">\null</type>
+            <type by_reference="false">null</type>
           </tag>
           <tag line="79" name="api" description=""/>
         </docblock>
@@ -392,8 +370,7 @@ parent-pointer node structures.
 Hooks for node comparison, error handling and logging capabilities are provided
 via a callback interface.&lt;/p&gt;
 
-&lt;p&gt;PHP version 5&lt;/p&gt;
-</long-description>
+&lt;p&gt;PHP version 5&lt;/p&gt;</long-description>
       <tag line="2" name="category" description="Structures"/>
       <tag line="2" name="package" description="Rbppavl"/>
       <tag line="2" name="author" description="mondrake &lt;mondrake@mondrake.org&gt;"/>
@@ -407,8 +384,7 @@ via a callback interface.&lt;/p&gt;
       <docblock>
         <description>Common Rbppavl class.</description>
         <long-description>&lt;p&gt;Abstract class introducing properties common to RbppavlTree and
-RbppavlTraverser.&lt;/p&gt;
-</long-description>
+RbppavlTraverser.&lt;/p&gt;</long-description>
         <tag line="24" name="category" description="Structures"/>
         <tag line="24" name="package" description="Rbppavl"/>
         <tag line="24" name="author" description="mondrake &lt;mondrake@mondrake.org&gt;"/>
@@ -421,8 +397,7 @@ RbppavlTraverser.&lt;/p&gt;
         <default>null</default>
         <docblock>
           <description>Callback interface instance</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="39" name="type" description="RbppavlCbInterface"/>
         </docblock>
       </property>
@@ -431,8 +406,7 @@ RbppavlTraverser.&lt;/p&gt;
         <default>false</default>
         <docblock>
           <description>Debug mode - if true, tree management operation are verbosely diagnosed</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="46" name="type" description="boolean"/>
         </docblock>
       </property>
@@ -442,8 +416,7 @@ RbppavlTraverser.&lt;/p&gt;
         <docblock>
           <description>If different from 0, insertions of new nodes are preliminary checked
 vs remaining memory available</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="53" name="type" description="integer"/>
         </docblock>
       </property>
@@ -453,8 +426,7 @@ vs remaining memory available</description>
         <docblock>
           <description>In combination with $memoryLimit, defines the minimum memory to be kept
 free during tree insertion operations</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="61" name="type" description="integer"/>
         </docblock>
       </property>
@@ -466,8 +438,7 @@ free during tree insertion operations</description>
           <long-description>&lt;p&gt;Array keys:
 - 'level'         status level complying to RFC 3164
 - 'code'          status code as per _message()
-- 'messageParams' array of parameters to qualify the message text&lt;/p&gt;
-</long-description>
+- 'messageParams' array of parameters to qualify the message text&lt;/p&gt;</long-description>
           <tag line="69" name="type" description="array"/>
         </docblock>
       </property>
@@ -475,16 +446,15 @@ free during tree insertion operations</description>
         <name>__call</name>
         <docblock>
           <description>Handles calls to inaccessible methods</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="84" name="param" description="the method invoked" type="string" variable="$name">
-            <type by_reference="false">\string</type>
+            <type by_reference="false">string</type>
           </tag>
           <tag line="84" name="param" description="the array representing the arguments passed to the method" type="array" variable="$args">
-            <type by_reference="false">\array</type>
+            <type by_reference="false">array</type>
           </tag>
           <tag line="84" name="return" description="" type="null">
-            <type by_reference="false">\null</type>
+            <type by_reference="false">null</type>
           </tag>
           <tag line="84" name="internal" description=""/>
         </docblock>
@@ -503,13 +473,12 @@ free during tree insertion operations</description>
         <name>__get</name>
         <docblock>
           <description>Handles reads to inaccessible properties</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="100" name="param" description="the property invoked" type="string" variable="$name">
-            <type by_reference="false">\string</type>
+            <type by_reference="false">string</type>
           </tag>
           <tag line="100" name="return" description="" type="null">
-            <type by_reference="false">\null</type>
+            <type by_reference="false">null</type>
           </tag>
           <tag line="100" name="internal" description=""/>
         </docblock>
@@ -523,16 +492,15 @@ free during tree insertion operations</description>
         <name>__set</name>
         <docblock>
           <description>Handles writes to inaccessible properties</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="115" name="param" description="the property invoked" type="string" variable="$name">
-            <type by_reference="false">\string</type>
+            <type by_reference="false">string</type>
           </tag>
           <tag line="115" name="param" description="the value attempted to be written" type="array" variable="$value">
-            <type by_reference="false">\array</type>
+            <type by_reference="false">array</type>
           </tag>
           <tag line="115" name="return" description="" type="null">
-            <type by_reference="false">\null</type>
+            <type by_reference="false">null</type>
           </tag>
           <tag line="115" name="internal" description=""/>
         </docblock>
@@ -551,13 +519,12 @@ free during tree insertion operations</description>
         <name>getVersion</name>
         <docblock>
           <description>Gets Rbppavl version and state.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="131" name="param" description="if true, internal status is updated and a diagnostic message broadcast" type="boolean" variable="$setStatus">
-            <type by_reference="false">\boolean</type>
+            <type by_reference="false">boolean</type>
           </tag>
           <tag line="131" name="return" description="an array with [0] = Rbppavl version number and [1] = Rbppavl version state" type="array">
-            <type by_reference="false">\array</type>
+            <type by_reference="false">array</type>
           </tag>
           <tag line="131" name="api" description=""/>
         </docblock>
@@ -571,28 +538,27 @@ free during tree insertion operations</description>
         <name>nodeFind</name>
         <docblock>
           <description>Finds a node in the tree.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="153" name="param" description="the tree to be searched" type="\RbppavlTree" variable="$tree">
             <type by_reference="false">\RbppavlTree</type>
           </tag>
           <tag line="153" name="param" description="the data object to be found" type="object" variable="$data">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="153" name="param" description="&amp;$y top node to start searching from" type="object" variable="$y">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="153" name="param" description="&amp;$q parent node of the found node" type="object" variable="$q">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="153" name="param" description="&amp;$dir last direction descended" type="int" variable="$dir">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="153" name="param" description="match mode {RBPPAVL_FIND_EXACT_MATCH|RBPPAVL_FIND_PREV_MATCH|RBPPAVL_FIND_NEXT_MATCH}" type="int" variable="$mode">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="153" name="return" description="pointer to the found node or null if not found" type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
         </docblock>
         <argument line="165">
@@ -630,16 +596,15 @@ free during tree insertion operations</description>
         <name>nodePrev</name>
         <docblock>
           <description>Returns the previous node in in-order sequence.</description>
-          <long-description>&lt;p&gt;If there are no more nodes returns null.&lt;/p&gt;
-</long-description>
+          <long-description>&lt;p&gt;If there are no more nodes returns null.&lt;/p&gt;</long-description>
           <tag line="233" name="param" description="the tree to be searched" type="\RbppavlTree" variable="$tree">
             <type by_reference="false">\RbppavlTree</type>
           </tag>
           <tag line="233" name="param" description="node to start searching from" type="object" variable="$node">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="233" name="return" description="previous node in in-order sequence or null if leftmost node input" type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
         </docblock>
         <argument line="243">
@@ -657,16 +622,15 @@ free during tree insertion operations</description>
         <name>nodeNext</name>
         <docblock>
           <description>Returns the next node in in-order sequence.</description>
-          <long-description>&lt;p&gt;If there are no more nodes returns null.&lt;/p&gt;
-</long-description>
+          <long-description>&lt;p&gt;If there are no more nodes returns null.&lt;/p&gt;</long-description>
           <tag line="262" name="param" description="the tree to be searched" type="\RbppavlTree" variable="$tree">
             <type by_reference="false">\RbppavlTree</type>
           </tag>
           <tag line="262" name="param" description="node to start searching from" type="object" variable="$node">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="262" name="return" description="next node in in-order sequence or null if rightmost node input" type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
         </docblock>
         <argument line="272">
@@ -684,13 +648,12 @@ free during tree insertion operations</description>
         <name>nodeFirst</name>
         <docblock>
           <description>Returns the node with the least value (leftmost).</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="291" name="param" description="the tree to be searched" type="\RbppavlTree" variable="$tree">
             <type by_reference="false">\RbppavlTree</type>
           </tag>
           <tag line="291" name="return" description="the leftmost node in the tree or null if tree is empty." type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
         </docblock>
         <argument line="298">
@@ -703,13 +666,12 @@ free during tree insertion operations</description>
         <name>nodeLast</name>
         <docblock>
           <description>Returns the node with the greatest value (rightmost).</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="312" name="param" description="the tree to be searched" type="\RbppavlTree" variable="$tree">
             <type by_reference="false">\RbppavlTree</type>
           </tag>
           <tag line="312" name="return" description="the rightmost node in the tree or null if tree is empty." type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
         </docblock>
         <argument line="319">
@@ -722,16 +684,15 @@ free during tree insertion operations</description>
         <name>checkData</name>
         <docblock>
           <description>Checks if the data object passed to a method is valid.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="333" name="param" description="the data object" type="object" variable="$data">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="333" name="param" description="the class method calling the function" type="string" variable="$method">
-            <type by_reference="false">\string</type>
+            <type by_reference="false">string</type>
           </tag>
           <tag line="333" name="return" description="true if $data is a valid object, false elsewhere" type="boolean">
-            <type by_reference="false">\boolean</type>
+            <type by_reference="false">boolean</type>
           </tag>
         </docblock>
         <argument line="341">
@@ -752,19 +713,18 @@ free during tree insertion operations</description>
           <long-description>&lt;p&gt;Internal status is updated with the severity level as identified by the message id.
 Diagnostic message is passed over to the callback interface.
 In case of RBPPAVL_ERROR, error handling is passed over to the callback interface;
-if callback interface is not instantiated yet, a standard exception is thrown.&lt;/p&gt;
-</long-description>
+if callback interface is not instantiated yet, a standard exception is thrown.&lt;/p&gt;</long-description>
           <tag line="359" name="param" description="the id of the diagnostic message" type="int" variable="$id">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="359" name="param" description="the parameters to qualify the message" type="array" variable="$params">
-            <type by_reference="false">\array</type>
+            <type by_reference="false">array</type>
           </tag>
           <tag line="359" name="param" description="if true, it is a reset call" type="boolean" variable="$reset">
-            <type by_reference="false">\boolean</type>
+            <type by_reference="false">boolean</type>
           </tag>
           <tag line="359" name="return" description="" type="null">
-            <type by_reference="false">\null</type>
+            <type by_reference="false">null</type>
           </tag>
         </docblock>
         <argument line="373">
@@ -787,10 +747,9 @@ if callback interface is not instantiated yet, a standard exception is thrown.&l
         <name>resetStatus</name>
         <docblock>
           <description>Resets internal status.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="404" name="return" description="" type="null">
-            <type by_reference="false">\null</type>
+            <type by_reference="false">null</type>
           </tag>
         </docblock>
       </method>
@@ -798,10 +757,9 @@ if callback interface is not instantiated yet, a standard exception is thrown.&l
         <name>getStatusLevel</name>
         <docblock>
           <description>Gets current status level.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="415" name="return" description="Current status level {RBPPAVL_DEBUG|RBPPAVL_INFO|RBPPAVL_NOTICE|RBPPAVL_WARNING|RBPPAVL_ERROR}" type="int">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="415" name="api" description=""/>
         </docblock>
@@ -810,10 +768,9 @@ if callback interface is not instantiated yet, a standard exception is thrown.&l
         <name>getStatusCode</name>
         <docblock>
           <description>Gets current status code.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="428" name="return" description="Current status code" type="int">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="428" name="api" description=""/>
         </docblock>
@@ -822,10 +779,9 @@ if callback interface is not instantiated yet, a standard exception is thrown.&l
         <name>getStatusMessage</name>
         <docblock>
           <description>Gets current status message.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="440" name="return" description="Current status message" type="string">
-            <type by_reference="false">\string</type>
+            <type by_reference="false">string</type>
           </tag>
           <tag line="440" name="api" description=""/>
         </docblock>
@@ -839,10 +795,9 @@ if callback interface is not instantiated yet, a standard exception is thrown.&l
 and the second the unqualified diagnostic text.
 A % sign precedes in the text a parameter identifier; getStatusMessage()
 will replace at run-time the parameters with actual data to qualify the
-message.&lt;/p&gt;
-</long-description>
+message.&lt;/p&gt;</long-description>
           <tag line="452" name="return" description="current Rbppavl diagnostic messages" type="array">
-            <type by_reference="false">\array</type>
+            <type by_reference="false">array</type>
           </tag>
           <tag line="452" name="api" description=""/>
         </docblock>
@@ -853,10 +808,9 @@ message.&lt;/p&gt;
           <description>Sets Rbppavl diagnostic messages.</description>
           <long-description>&lt;p&gt;Each array item of the input arrayis itself an array, with first
 element being the severity {RBPPAVL_DEBUG|RBPPAVL_INFO|RBPPAVL_NOTICE|RBPPAVL_WARNING|RBPPAVL_ERROR},
-and the second the unqualified diagnostic text.&lt;/p&gt;
-</long-description>
+and the second the unqualified diagnostic text.&lt;/p&gt;</long-description>
           <tag line="471" name="param" description="Rbppavl diagnostic messages" type="array" variable="$table">
-            <type by_reference="false">\array</type>
+            <type by_reference="false">array</type>
           </tag>
           <tag line="471" name="return" description="new complete diagnostic messages map" type="\the">
             <type by_reference="false">\the</type>
@@ -873,14 +827,13 @@ and the second the unqualified diagnostic text.&lt;/p&gt;
         <name>returnBytes</name>
         <docblock>
           <description>Converts a short for memory size into number of bytes.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="489" name="param" description="a size number in bytes, or KBytes (nnnK), or MBytes (nnnM), or GBytes (nnnG)" type="int|string" variable="$size">
-            <type by_reference="false">\int</type>
-            <type by_reference="false">\string</type>
+            <type by_reference="false">int</type>
+            <type by_reference="false">string</type>
           </tag>
           <tag line="489" name="return" description="number of bytes" type="int">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
         </docblock>
         <argument line="496">
@@ -893,16 +846,15 @@ and the second the unqualified diagnostic text.&lt;/p&gt;
         <name>txt</name>
         <docblock>
           <description>Returns a fully qualified diagnostic message.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="513" name="param" description="id of the diagnostic message" type="int" variable="$id">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="513" name="param" description="parameters to qualify the message" type="array" variable="$params">
-            <type by_reference="false">\array</type>
+            <type by_reference="false">array</type>
           </tag>
           <tag line="513" name="return" description="fully qualified diagnostic text" type="string">
-            <type by_reference="false">\string</type>
+            <type by_reference="false">string</type>
           </tag>
         </docblock>
         <argument line="521">
@@ -920,13 +872,12 @@ and the second the unqualified diagnostic text.&lt;/p&gt;
         <name>_message</name>
         <docblock>
           <description>Manages Rbppavl diagnostic messages.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="532" name="param" description="1) diagnostic message code (int|string), or 2) null to get current diagnostic message map, or 3) array to merge a new diagnostic message map" type="mixed" variable="$id">
-            <type by_reference="false">\mixed</type>
+            <type by_reference="false">mixed</type>
           </tag>
           <tag line="532" name="return" description="1) an array with diagnostic message severity and unqualified text, or null if not found 2) the entire map 3) the resulting merged array" type="mixed">
-            <type by_reference="false">\mixed</type>
+            <type by_reference="false">mixed</type>
           </tag>
         </docblock>
         <argument line="544">
@@ -950,8 +901,7 @@ parent-pointer node structures.
 Hooks for node comparison, error handling and logging capabilities are provided
 via a callback interface.&lt;/p&gt;
 
-&lt;p&gt;PHP version 5&lt;/p&gt;
-</long-description>
+&lt;p&gt;PHP version 5&lt;/p&gt;</long-description>
       <tag line="2" name="category" description="Structures"/>
       <tag line="2" name="package" description="Rbppavl"/>
       <tag line="2" name="author" description="mondrake &lt;mondrake@mondrake.org&gt;"/>
@@ -964,8 +914,7 @@ via a callback interface.&lt;/p&gt;
       <full_name>\RbppavlNode</full_name>
       <docblock>
         <description>Rbppavl tree node.</description>
-        <long-description>&lt;p&gt;Class with node methods.&lt;/p&gt;
-</long-description>
+        <long-description>&lt;p&gt;Class with node methods.&lt;/p&gt;</long-description>
         <tag line="24" name="category" description="Structures"/>
         <tag line="24" name="package" description="Rbppavl"/>
         <tag line="24" name="author" description="mondrake &lt;mondrake@mondrake.org&gt;"/>
@@ -978,8 +927,7 @@ via a callback interface.&lt;/p&gt;
         <default>array( null</default>
         <docblock>
           <description>Pointers to the node's left and right subtrees</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="38" name="type" description="array"/>
         </docblock>
       </property>
@@ -988,8 +936,7 @@ via a callback interface.&lt;/p&gt;
         <default>null</default>
         <docblock>
           <description>Pointer to the node's parent node</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="45" name="type" description="RbppavlNode"/>
         </docblock>
       </property>
@@ -998,8 +945,7 @@ via a callback interface.&lt;/p&gt;
         <default/>
         <docblock>
           <description>Pointer to the node's data object (payload)</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="52" name="type" description="object"/>
         </docblock>
       </property>
@@ -1008,8 +954,7 @@ via a callback interface.&lt;/p&gt;
         <default/>
         <docblock>
           <description>Height of the node's tree</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="59" name="type" description="integer"/>
         </docblock>
       </property>
@@ -1017,16 +962,15 @@ via a callback interface.&lt;/p&gt;
         <name>__construct</name>
         <docblock>
           <description>Constructs a RbppavlNode instance.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="66" name="param" description="the caller tree" type="object" variable="$tree">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="66" name="param" description="the object of the node" type="object" variable="$data">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="66" name="param" description="the parent RbppavlNode" type="object" variable="$parent">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="66" name="access" description="private"/>
         </docblock>
@@ -1051,10 +995,9 @@ via a callback interface.&lt;/p&gt;
         <docblock>
           <description>Returns the current value of the node's balancing factor.</description>
           <long-description>&lt;p&gt;Balance is determined from the difference of the heights of the
-node's subtrees.&lt;/p&gt;
-</long-description>
+node's subtrees.&lt;/p&gt;</long-description>
           <tag line="84" name="return" description="value of the balancing factor" type="int">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="84" name="access" description="private"/>
         </docblock>
@@ -1064,10 +1007,9 @@ node's subtrees.&lt;/p&gt;
         <docblock>
           <description>Resets the node's height.</description>
           <long-description>&lt;p&gt;Height is determined from the value of the 'height' property
-of the subtrees.&lt;/p&gt;
-</long-description>
+of the subtrees.&lt;/p&gt;</long-description>
           <tag line="101" name="return" description="" type="null">
-            <type by_reference="false">\null</type>
+            <type by_reference="false">null</type>
           </tag>
           <tag line="101" name="access" description="private"/>
         </docblock>
@@ -1080,13 +1022,12 @@ of the subtrees.&lt;/p&gt;
 associated data objects without recalculating heights and balancing
 factors of the rest of the tree.
 Called by RbppavlTree::_destruct() to orderly free memory when
-destructuring a tree object.&lt;/p&gt;
-</long-description>
+destructuring a tree object.&lt;/p&gt;</long-description>
           <tag line="119" name="param" description="&amp;$ctr counter of nodes wiped from the tree" type="object" variable="$ctr">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="119" name="return" description="number of nodes wiped from the tree" type="int">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="119" name="access" description="private"/>
         </docblock>
@@ -1102,19 +1043,18 @@ destructuring a tree object.&lt;/p&gt;
           <description>Validates the node's compliance to AVL rules.</description>
           <long-description>&lt;p&gt;This method should be used only for debugging purposes.&lt;/p&gt;
 
-&lt;p&gt;Called by RbppavlTree::debugValidate().&lt;/p&gt;
-</long-description>
+&lt;p&gt;Called by RbppavlTree::debugValidate().&lt;/p&gt;</long-description>
           <tag line="156" name="param" description="balancing factor" type="int" variable="$balanceFactor">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="156" name="param" description="&amp;$status failure status" type="int" variable="$status">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="156" name="param" description="if true, recursively validates all the nodes in the node's subtrees" type="boolean" variable="$recurse">
-            <type by_reference="false">\boolean</type>
+            <type by_reference="false">boolean</type>
           </tag>
           <tag line="156" name="return" description="pointer to the node failing AVL rules, or null if node is compliant" type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="156" name="access" description="private"/>
         </docblock>
@@ -1146,10 +1086,9 @@ node upwards. This method is used by debugNodeValidate() to ensure
 the height property of a node corresponds to the actual height.
 In normal mode, the 'height' property stores the current node's
 height, and is updated by RbppavlTree methods to keep it consistent
-across tree balancing operations.&lt;/p&gt;
-</long-description>
+across tree balancing operations.&lt;/p&gt;</long-description>
           <tag line="203" name="return" description="the node's height" type="int">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="203" name="access" description="private"/>
         </docblock>
@@ -1169,8 +1108,7 @@ parent-pointer node structures.
 Hooks for node comparison, error handling and logging capabilities are provided
 via a callback interface.&lt;/p&gt;
 
-&lt;p&gt;PHP version 5&lt;/p&gt;
-</long-description>
+&lt;p&gt;PHP version 5&lt;/p&gt;</long-description>
       <tag line="2" name="category" description="Structures"/>
       <tag line="2" name="package" description="Rbppavl"/>
       <tag line="2" name="author" description="mondrake &lt;mondrake@mondrake.org&gt;"/>
@@ -1183,8 +1121,7 @@ via a callback interface.&lt;/p&gt;
       <full_name>\RbppavlTraverser</full_name>
       <docblock>
         <description>AVL tree in-order traverser.</description>
-        <long-description>&lt;p&gt;Implements parent-pointer node structures.&lt;/p&gt;
-</long-description>
+        <long-description>&lt;p&gt;Implements parent-pointer node structures.&lt;/p&gt;</long-description>
         <tag line="24" name="category" description="Structures"/>
         <tag line="24" name="package" description="Rbppavl"/>
         <tag line="24" name="author" description="mondrake &lt;mondrake@mondrake.org&gt;"/>
@@ -1196,8 +1133,7 @@ via a callback interface.&lt;/p&gt;
         <default/>
         <docblock>
           <description>Tree being traversed</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="37" name="type" description="RbppavlTree"/>
         </docblock>
       </property>
@@ -1206,8 +1142,7 @@ via a callback interface.&lt;/p&gt;
         <default/>
         <docblock>
           <description>Cursor to current node in tree</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="44" name="type" description="RbppavlNode"/>
         </docblock>
       </property>
@@ -1215,16 +1150,15 @@ via a callback interface.&lt;/p&gt;
         <name>__construct</name>
         <docblock>
           <description>Initializes the traverser.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="51" name="param" description="the tree to be traversed" type="\RbppavlTree" variable="$tree">
             <type by_reference="false">\RbppavlTree</type>
           </tag>
           <tag line="51" name="param" description="if true produces verbose debugging on tree operations" type="boolean" variable="$debugMode">
-            <type by_reference="false">\boolean</type>
+            <type by_reference="false">boolean</type>
           </tag>
           <tag line="51" name="return" description="" type="null">
-            <type by_reference="false">\null</type>
+            <type by_reference="false">null</type>
           </tag>
           <tag line="51" name="api" description=""/>
         </docblock>
@@ -1243,10 +1177,9 @@ via a callback interface.&lt;/p&gt;
         <name>first</name>
         <docblock>
           <description>Returns the data object with the least value (leftmost).</description>
-          <long-description>&lt;p&gt;Cursor is set to identified node.&lt;/p&gt;
-</long-description>
+          <long-description>&lt;p&gt;Cursor is set to identified node.&lt;/p&gt;</long-description>
           <tag line="69" name="return" description="the leftmost data object in the tree or null if tree is empty." type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="69" name="api" description=""/>
         </docblock>
@@ -1255,10 +1188,9 @@ via a callback interface.&lt;/p&gt;
         <name>last</name>
         <docblock>
           <description>Returns the data object with the greatest value (rightmost).</description>
-          <long-description>&lt;p&gt;Cursor is set to identified node.&lt;/p&gt;
-</long-description>
+          <long-description>&lt;p&gt;Cursor is set to identified node.&lt;/p&gt;</long-description>
           <tag line="85" name="return" description="the rightmost data object in the tree or null if tree is empty." type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="85" name="api" description=""/>
         </docblock>
@@ -1270,16 +1202,15 @@ via a callback interface.&lt;/p&gt;
           <long-description>&lt;p&gt;If found, cursor is set to identified node, and a pointer to the data
 object is returned.
 If there is no matching data object, cursor is set to null and
-and returns null.&lt;/p&gt;
-</long-description>
+and returns null.&lt;/p&gt;</long-description>
           <tag line="101" name="param" description="data object to be searched" type="object" variable="$data">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="101" name="param" description="match mode - by default exact match {RBPPAVL_FIND_EXACT_MATCH|RBPPAVL_FIND_PREV_MATCH|RBPPAVL_FIND_NEXT_MATCH}" type="int" variable="$mode">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="101" name="return" description="pointer to data object found, or null if not found" type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="101" name="api" description=""/>
         </docblock>
@@ -1299,10 +1230,9 @@ and returns null.&lt;/p&gt;
         <docblock>
           <description>Returns the next data object in in-order sequence.</description>
           <long-description>&lt;p&gt;Updates the cursor. If there are no more data objects returns null.
-If cursor is not set yet, returns the first data object in in-order sequence.&lt;/p&gt;
-</long-description>
+If cursor is not set yet, returns the first data object in in-order sequence.&lt;/p&gt;</long-description>
           <tag line="136" name="return" description="next data object in in-order sequence or null if cursor on rightmost node" type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="136" name="api" description=""/>
         </docblock>
@@ -1312,10 +1242,9 @@ If cursor is not set yet, returns the first data object in in-order sequence.&lt
         <docblock>
           <description>Returns the previous data object in in-order sequence.</description>
           <long-description>&lt;p&gt;Updates the cursor. If there are no more data objects returns null.
-If cursor is not set yet, returns the last data object in in-order sequence.&lt;/p&gt;
-</long-description>
+If cursor is not set yet, returns the last data object in in-order sequence.&lt;/p&gt;</long-description>
           <tag line="153" name="return" description="previous data object in in-order sequence or null if cursor on leftmost node" type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="153" name="api" description=""/>
         </docblock>
@@ -1324,10 +1253,9 @@ If cursor is not set yet, returns the last data object in in-order sequence.&lt;
         <name>curr</name>
         <docblock>
           <description>Returns the current node's data object.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="170" name="return" description="data object of current node or null if cursor not initialized yet" type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="170" name="api" description=""/>
         </docblock>
@@ -1347,8 +1275,7 @@ parent-pointer node structures.
 Hooks for node comparison, error handling and logging capabilities are provided
 via a callback interface.&lt;/p&gt;
 
-&lt;p&gt;PHP version 5&lt;/p&gt;
-</long-description>
+&lt;p&gt;PHP version 5&lt;/p&gt;</long-description>
       <tag line="2" name="category" description="Structures"/>
       <tag line="2" name="package" description="Rbppavl"/>
       <tag line="2" name="author" description="mondrake &lt;mondrake@mondrake.org&gt;"/>
@@ -1364,8 +1291,7 @@ via a callback interface.&lt;/p&gt;
         <long-description>&lt;p&gt;Implements relaxed balance factors, and parent-pointer node structures.
 When instantiating a new tree, a callback interface must have been defined
 in compliance to RbppavlCbInterface, and its class name passed as an argument.
-Rbppavl will create an instance of the specified class.&lt;/p&gt;
-</long-description>
+Rbppavl will create an instance of the specified class.&lt;/p&gt;</long-description>
         <tag line="24" name="category" description="Structures"/>
         <tag line="24" name="package" description="Rbppavl"/>
         <tag line="24" name="author" description="mondrake &lt;mondrake@mondrake.org&gt;"/>
@@ -1377,8 +1303,7 @@ Rbppavl will create an instance of the specified class.&lt;/p&gt;
         <default/>
         <docblock>
           <description>Pointer to the root node of the tree</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="40" name="type" description="RbppavlNode"/>
         </docblock>
       </property>
@@ -1387,8 +1312,7 @@ Rbppavl will create an instance of the specified class.&lt;/p&gt;
         <default/>
         <docblock>
           <description>Maximum imbalance allowed for a node</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="47" name="type" description="integer"/>
         </docblock>
       </property>
@@ -1397,8 +1321,7 @@ Rbppavl will create an instance of the specified class.&lt;/p&gt;
         <default/>
         <docblock>
           <description>Number of nodes in tree</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="54" name="type" description="integer"/>
         </docblock>
       </property>
@@ -1407,8 +1330,7 @@ Rbppavl will create an instance of the specified class.&lt;/p&gt;
         <default>array( 'att_ins'  =&gt; 0</default>
         <docblock>
           <description>Internal tree statistics</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="61" name="type" description="array"/>
         </docblock>
       </property>
@@ -1416,19 +1338,18 @@ Rbppavl will create an instance of the specified class.&lt;/p&gt;
         <name>__construct</name>
         <docblock>
           <description>Creates a new tree.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="78" name="param" description="callback interface class to be instantiated" type="string" variable="$callbackClass">
-            <type by_reference="false">\string</type>
+            <type by_reference="false">string</type>
           </tag>
           <tag line="78" name="param" description="AVL balancing factor of the tree" type="int" variable="$balanceFactor">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="78" name="param" description="if true produces verbose debugging on tree operations" type="boolean" variable="$debugMode">
-            <type by_reference="false">\boolean</type>
+            <type by_reference="false">boolean</type>
           </tag>
           <tag line="78" name="param" description="if not null enables available memory checking, with min available memory as per value specified" type="mixed" variable="$memThreshold">
-            <type by_reference="false">\mixed</type>
+            <type by_reference="false">mixed</type>
           </tag>
           <tag line="78" name="api" description=""/>
         </docblock>
@@ -1457,8 +1378,7 @@ Rbppavl will create an instance of the specified class.&lt;/p&gt;
         <name>__destruct</name>
         <docblock>
           <description>Destroys a tree.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="108" name="access" description="private"/>
         </docblock>
       </method>
@@ -1467,14 +1387,13 @@ Rbppavl will create an instance of the specified class.&lt;/p&gt;
         <docblock>
           <description>Inserts a data object in the tree structure.</description>
           <long-description>&lt;p&gt;Normally returns null if successful.
-Use getStatusLevel() and getStatusCode() to check internal error status.&lt;/p&gt;
-</long-description>
+Use getStatusLevel() and getStatusCode() to check internal error status.&lt;/p&gt;</long-description>
           <tag line="125" name="param" description="data object to be inserted" type="object" variable="$data">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="125" name="api" description=""/>
           <tag line="125" name="return" description="null if node was created or internal error occurred; pointer to existing data object if node exists already" type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
         </docblock>
         <argument line="138">
@@ -1490,13 +1409,12 @@ Use getStatusLevel() and getStatusCode() to check internal error status.&lt;/p&g
           <long-description>&lt;p&gt;Normally returns null if successful, or a pointer to the replaced
 data object. Note: replaced data object is NOT destructed, calling
 code should deal with the duplicated data object.
-Use getStatusLevel() and getStatusCode() to check internal error status.&lt;/p&gt;
-</long-description>
+Use getStatusLevel() and getStatusCode() to check internal error status.&lt;/p&gt;</long-description>
           <tag line="154" name="param" description="data object" type="object" variable="$data">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="154" name="return" description="null if node was created or internal error occurred; pointer to replaced data object if node was existing already" type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="154" name="api" description=""/>
         </docblock>
@@ -1510,16 +1428,15 @@ Use getStatusLevel() and getStatusCode() to check internal error status.&lt;/p&g
         <name>find</name>
         <docblock>
           <description>Finds a data object in the tree structure.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="188" name="param" description="data object to be searched" type="object" variable="$data">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="188" name="param" description="match mode - by default exact match {RBPPAVL_FIND_EXACT_MATCH|RBPPAVL_FIND_PREV_MATCH|RBPPAVL_FIND_NEXT_MATCH}" type="int" variable="$mode">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="188" name="return" description="null if node was not found or internal error occurred; pointer to data object if node found" type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="188" name="api" description=""/>
         </docblock>
@@ -1540,13 +1457,12 @@ Use getStatusLevel() and getStatusCode() to check internal error status.&lt;/p&g
           <description>Deletes a data object from the tree structure.</description>
           <long-description>&lt;p&gt;Normally returns a pointer to the data object deleted from the structure,
 or null if the data object was not found.
-Use getStatusLevel() and getStatusCode() to check internal error status.&lt;/p&gt;
-</long-description>
+Use getStatusLevel() and getStatusCode() to check internal error status.&lt;/p&gt;</long-description>
           <tag line="218" name="param" description="data object to be deleted" type="object" variable="$data">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="218" name="return" description="null if node was not found or internal error occurred; pointer to existing data object if node deleted" type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="218" name="api" description=""/>
         </docblock>
@@ -1560,11 +1476,10 @@ Use getStatusLevel() and getStatusCode() to check internal error status.&lt;/p&g
         <name>getCount</name>
         <docblock>
           <description>Return the number of nodes in the tree.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="418" name="api" description=""/>
           <tag line="418" name="return" description="number of nodes in the tree" type="int">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
         </docblock>
       </method>
@@ -1573,13 +1488,12 @@ Use getStatusLevel() and getStatusCode() to check internal error status.&lt;/p&g
         <docblock>
           <description>Inserts a node in the tree and returns a pointer to the node inserted.</description>
           <long-description>&lt;p&gt;If a duplicate data object is found in the tree, returns a pointer to the duplicate node
-without inserting the new data object.&lt;/p&gt;
-</long-description>
+without inserting the new data object.&lt;/p&gt;</long-description>
           <tag line="431" name="param" description="the data object to be inserted" type="object" variable="$data">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="431" name="return" description="pointer to the node inserted" type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
         </docblock>
         <argument line="441">
@@ -1592,13 +1506,12 @@ without inserting the new data object.&lt;/p&gt;
         <name>_rotationRebalance</name>
         <docblock>
           <description>Performs rotation on the node to restore AVL compliance.</description>
-          <long-description>
-</long-description>
+          <long-description/>
           <tag line="531" name="param" description="node to be rotated" type="object" variable="$y">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="531" name="return" description="" type="null">
-            <type by_reference="false">\null</type>
+            <type by_reference="false">null</type>
           </tag>
         </docblock>
         <argument line="538">
@@ -1614,13 +1527,12 @@ without inserting the new data object.&lt;/p&gt;
           <long-description>&lt;p&gt;This method should be used only for debugging purposes.&lt;/p&gt;
 
 &lt;p&gt;Recursively checks all nodes in tree to see if nodes' height property and
-balance factor are computed correctly.&lt;/p&gt;
-</long-description>
+balance factor are computed correctly.&lt;/p&gt;</long-description>
           <tag line="658" name="param" description="if true and validation is successful, internal status is updated and a diagnostic message broadcast" type="boolean" variable="$setStatusOnSuccess">
-            <type by_reference="false">\boolean</type>
+            <type by_reference="false">boolean</type>
           </tag>
           <tag line="658" name="return" description="the data object of the first failing node or null if successful" type="object">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="658" name="api" description=""/>
         </docblock>
@@ -1638,13 +1550,12 @@ balance factor are computed correctly.&lt;/p&gt;
 
 &lt;p&gt;Basically, performs a level-order traversal of the tree, associating each node
 to its level and position within the level, and build an array with associated
-keys.&lt;/p&gt;
-</long-description>
+keys.&lt;/p&gt;</long-description>
           <tag line="703" name="param" description="maximum number of levels to be returned" type="int" variable="$maxLevel">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="703" name="return" description="an array in the format $arr[$lev][$pos] where $lev is the level of the node in the tree, and $pos the position of the node in the level" type="array">
-            <type by_reference="false">\array</type>
+            <type by_reference="false">array</type>
           </tag>
           <tag line="703" name="api" description=""/>
         </docblock>
@@ -1660,25 +1571,24 @@ keys.&lt;/p&gt;
           <description>Inserts a node in a level-order array.</description>
           <long-description>&lt;p&gt;This method should be used only for debugging purposes.&lt;/p&gt;
 
-&lt;p&gt;This method is called by debugLevelOrderToArray(). It works recursively.&lt;/p&gt;
-</long-description>
+&lt;p&gt;This method is called by debugLevelOrderToArray(). It works recursively.&lt;/p&gt;</long-description>
           <tag line="727" name="param" description="the node to be inserted in the array" type="object" variable="$node">
-            <type by_reference="false">\object</type>
+            <type by_reference="false">object</type>
           </tag>
           <tag line="727" name="param" description="the level at which the node is positioned" type="int" variable="$level">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="727" name="param" description="the node position in the level in binary notation" type="string" variable="$pos">
-            <type by_reference="false">\string</type>
+            <type by_reference="false">string</type>
           </tag>
           <tag line="727" name="param" description="maximum level to recurse down to" type="int" variable="$maxLevel">
-            <type by_reference="false">\int</type>
+            <type by_reference="false">int</type>
           </tag>
           <tag line="727" name="param" description="&amp;$arr the array to be filled" type="array" variable="$arr">
-            <type by_reference="false">\array</type>
+            <type by_reference="false">array</type>
           </tag>
           <tag line="727" name="return" description="" type="null">
-            <type by_reference="false">\null</type>
+            <type by_reference="false">null</type>
           </tag>
         </docblock>
         <argument line="742">
@@ -1727,17 +1637,16 @@ associative array. The keys of the array are the following:
 - 'll'             number of LL rotations
 - 'lr'             number of LR rotations
 - 'rr'             number of RR rotations
-- 'rl'             number of RL rotations&lt;/p&gt;
-</long-description>
+- 'rl'             number of RL rotations&lt;/p&gt;</long-description>
           <tag line="766" name="param" description="the statistic key to return, or null to return the whole array of statistics" type="string" variable="$stat">
-            <type by_reference="false">\string</type>
+            <type by_reference="false">string</type>
           </tag>
           <tag line="766" name="param" description="if true, internal status is updated and diagnostic message is broadcast" type="boolean" variable="$setStatus">
-            <type by_reference="false">\boolean</type>
+            <type by_reference="false">boolean</type>
           </tag>
           <tag line="766" name="return" description="value of the statistic key requested, or the whole array of statistics if no statistic key specified" type="int|array">
-            <type by_reference="false">\int</type>
-            <type by_reference="false">\array</type>
+            <type by_reference="false">int</type>
+            <type by_reference="false">array</type>
           </tag>
           <tag line="766" name="api" description=""/>
         </docblock>
